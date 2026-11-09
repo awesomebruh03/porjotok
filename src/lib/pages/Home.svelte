@@ -36,7 +36,7 @@
     <!-- Background Hero Image -->
     <div
       class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-      style="background-image: url('/assets/hero-banyan.png');"
+      style="background-image: url('assets/hero-banyan.png');"
     >
       <!-- Gradient Overlays for Cinematic Atmosphere and Text Readability -->
       <div
@@ -309,7 +309,7 @@
     <!-- Subtle Water Reflection Texture in Background -->
     <div
       class="pointer-events-none absolute inset-0 bg-cover bg-center opacity-15"
-      style="background-image: url('/assets/water-reflection.png');"
+      style="background-image: url('assets/water-reflection.png');"
     ></div>
 
     <div class="relative z-10 mx-auto max-w-[1380px] px-4 sm:px-6 lg:px-8">

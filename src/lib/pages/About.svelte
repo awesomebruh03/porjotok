@@ -83,7 +83,7 @@
         <div class="yellow-framed-image">
           <div class="aspect-[4/3] overflow-hidden bg-black">
             <img
-              src="/assets/hero-banyan.png"
+              src="assets/hero-banyan.png"
               alt="পর্যটক ক্ষেত্রসমীক্ষা"
               class="h-full w-full object-cover"
             />
