@@ -13,6 +13,7 @@ export default defineConfig({
         }
       },
     }),
+    base:'porjotok',
   ],
   server: {
     port: 5173,
