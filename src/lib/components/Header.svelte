@@ -1,6 +1,7 @@
 <script>
   import { router, navigate } from "../stores/router.svelte.js";
   import { openSubscriptionModal } from "../stores/ui.svelte.js";
+  import TranslateButton from "./TranslateButton.svelte";
 
   let mobileMenuOpen = $state(false);
   let searchInputOpen = $state(false);
@@ -45,6 +46,7 @@
     <div class="flex items-center space-x-3 sm:space-x-4">
       <a
         href="#/"
+        data-no-translate
         class="font-serif text-3xl font-bold tracking-tight text-[#0F2B34] transition-colors hover:text-[#A31D1D] sm:text-4xl"
       >
         পর্যটক
@@ -160,6 +162,9 @@
           </button>
         {/if}
       </div>
+
+      <!-- On-device translation toggle -->
+      <TranslateButton />
 
       <!-- Subscribe Button (Exact match from Header reference) -->
       <button

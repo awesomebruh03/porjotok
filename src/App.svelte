@@ -1,5 +1,7 @@
 <script>
+  import { onMount } from 'svelte';
   import { router } from './lib/stores/router.svelte.js';
+  import { initLocale } from './lib/translate/locale.svelte.js';
   import Header from './lib/components/Header.svelte';
   import Footer from './lib/components/Footer.svelte';
   import SubscriptionModal from './lib/components/SubscriptionModal.svelte';
@@ -18,6 +20,10 @@
   import NotFound from './lib/pages/NotFound.svelte';
 
   const route = $derived(router.current);
+
+  onMount(() => {
+    initLocale();
+  });
 </script>
 
 <div class="min-h-screen flex flex-col bg-[#F4F1EA] text-[#1E2328]">

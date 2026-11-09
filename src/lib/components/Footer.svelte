@@ -34,6 +34,7 @@
       <!-- Left Column: Big Yellow Slogan & Mission Statement -->
       <div class="lg:col-span-7">
         <h2
+          data-no-translate
           class="mb-4 font-serif text-3xl font-bold tracking-wide text-[#FDD835] sm:text-4xl md:text-5xl"
         >
           পর্যটক

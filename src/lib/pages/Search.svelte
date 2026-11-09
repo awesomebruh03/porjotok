@@ -2,6 +2,11 @@
   import { articles } from '../data/articles.js';
   import { publications } from '../data/publications.js';
   import { router, navigate } from '../stores/router.svelte.js';
+  import {
+    matchesFields,
+    ARTICLE_SEARCH_FIELDS,
+    PUBLICATION_SEARCH_FIELDS,
+  } from '../translate/search.js';
 
   let searchQuery = $state('');
   let activeTab = $state('all'); // 'all' | 'articles' | 'publications'
@@ -14,22 +19,11 @@
   });
 
   let matchedArticles = $derived(searchQuery.trim()
-    ? articles.filter(a =>
-        a.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        a.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        a.author.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        a.categoryLabel.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        (a.location && a.location.toLowerCase().includes(searchQuery.toLowerCase()))
-      )
+    ? articles.filter(a => matchesFields(a, searchQuery, ARTICLE_SEARCH_FIELDS))
     : []);
 
   let matchedPublications = $derived(searchQuery.trim()
-    ? publications.filter(p =>
-        p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.subtitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.summary.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.period.toLowerCase().includes(searchQuery.toLowerCase())
-      )
+    ? publications.filter(p => matchesFields(p, searchQuery, PUBLICATION_SEARCH_FIELDS))
     : []);
 
   let totalMatches = $derived(matchedArticles.length + matchedPublications.length);

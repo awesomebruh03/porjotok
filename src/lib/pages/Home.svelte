@@ -392,9 +392,9 @@
             >
               প্রচ্ছদ প্রতিবেদন
             </span>
-            <span class="font-mono text-[#4B5563]">
+            <!-- <span class="font-mono text-[#4B5563]">
               নথি নং: {coverStory.docNumber}
-            </span>
+            </span> -->
           </div>
           <div class="font-medium text-[#4B5563]">
             {coverStory.banglaDate}
