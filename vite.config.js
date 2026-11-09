@@ -3,6 +3,7 @@ import { svelte } from "@sveltejs/vite-plugin-svelte";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/porjotok/",
   plugins: [
     svelte({
       inspector: true,
@@ -13,7 +14,6 @@ export default defineConfig({
         }
       },
     }),
-    base:'porjotok',
   ],
   server: {
     port: 5173,
