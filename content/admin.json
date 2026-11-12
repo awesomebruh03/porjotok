@@ -1,4 +1,20 @@
 {
+  "auth.loading": {
+    "bn": "অ্যাডমিন লোড হচ্ছে…",
+    "en": "Loading admin…"
+  },
+  "auth.signOut": {
+    "bn": "লগআউট",
+    "en": "Sign out"
+  },
+  "auth.signedInAs": {
+    "bn": "লগইন করা আছে",
+    "en": "Signed in as"
+  },
+  "auth.signingOut": {
+    "bn": "লগআউট হচ্ছে…",
+    "en": "Signing out…"
+  },
   "common.admin": {
     "bn": "অ্যাডমিন",
     "en": "Admin"
@@ -14,6 +30,10 @@
   "common.brand": {
     "bn": "পর্যটক",
     "en": "Porjotok"
+  },
+  "common.draftMode": {
+    "bn": "খসড়া মোড",
+    "en": "Draft mode"
   },
   "common.english": {
     "bn": "English",
@@ -31,10 +51,6 @@
     "bn": "প্রোটোটাইপ",
     "en": "Prototype"
   },
-  "common.readOnly": {
-    "bn": "শুধুমাত্র পড়ার জন্য",
-    "en": "Read only"
-  },
   "common.version": {
     "bn": "সংস্করণ ১.০",
     "en": "Version 1.0"
@@ -42,18 +58,6 @@
   "common.viewSite": {
     "bn": "সাইট দেখুন",
     "en": "View site"
-  },
-  "content.count.keys": {
-    "bn": "{count}টি কী",
-    "en": "{count} keys"
-  },
-  "content.count.links": {
-    "bn": "{count}টি লিংক",
-    "en": "{count} links"
-  },
-  "content.empty": {
-    "bn": "কোনো লিংক পাওয়া যায়নি",
-    "en": "No links found"
   },
   "content.groups.hint": {
     "bn": "প্রতিটি গ্রুপের কী ও লিংকের সংখ্যা",
@@ -63,45 +67,21 @@
     "bn": "পেজ অনুযায়ী লেখা",
     "en": "Copy by page"
   },
-  "content.links.hint": {
-    "bn": "নেভিগেশন, ফুটার ও স্ট্যাটিক বাটনের গন্তব্য",
-    "en": "Destinations for navigation, footer, and static buttons"
-  },
-  "content.links.title": {
-    "bn": "লিংক গন্তব্য",
-    "en": "Link destinations"
-  },
   "content.subtitle": {
     "bn": "পাবলিক সাইটের সব লেখা ও লিংক এক জায়গায়",
     "en": "Every piece of public copy and every link in one place"
   },
-  "content.table.href": {
-    "bn": "গন্তব্য",
-    "en": "Destination"
-  },
-  "content.table.key": {
-    "bn": "কী",
-    "en": "Key"
-  },
-  "content.table.newTab": {
-    "bn": "নতুন ট্যাব",
-    "en": "New tab"
-  },
-  "content.table.text": {
-    "bn": "লেখা",
-    "en": "Text"
-  },
   "dashboard.lead": {
-    "bn": "এখান থেকে সাইটের লেখা, প্রতিবেদন ও প্রকাশনা পরিচালনা করা যাবে। এই ধাপে অ্যাডমিন কেবল পড়ার জন্য।",
-    "en": "Manage site copy, articles, and publications from here. In this step the admin is read-only."
+    "bn": "সাইটের লেখা ও লিংক এখন সম্পাদনা করে খসড়া হিসেবে সংরক্ষণ করা যাবে। প্রকাশিত সাইটে পাঠানোর কাজ পরের ধাপে।",
+    "en": "You can now edit site copy and links and save them as drafts. Publishing to the live site comes next."
   },
   "dashboard.notice.body": {
-    "bn": "অ্যাডমিন শেল প্রস্তুত। পরের ধাপে লেখা সম্পাদনা, খসড়া ও প্রকাশনা যোগ হবে; প্রকাশনার আগে Supabase লগইন চালু হবে।",
-    "en": "The admin shell is ready. Editing, drafts, and publishing arrive next, with Supabase login enabled before anything can be published."
+    "bn": "পরিবর্তনগুলো Supabase-এ খসড়া হিসেবে জমা থাকে। লাইভ সাইট এখনো বান্ডল করা content/site.json পড়ে, তাই প্রকাশনার ধাপ পর্যন্ত কিছুই লাইভ হবে না।",
+    "en": "Changes are stored as drafts in Supabase. The live site still reads the bundled content/site.json, so nothing goes live until the publishing step."
   },
   "dashboard.notice.title": {
-    "bn": "এই ধাপে সম্পাদনা বন্ধ",
-    "en": "Editing is off in this step"
+    "bn": "খসড়া সম্পাদনা চালু",
+    "en": "Draft editing is on"
   },
   "dashboard.quick.content": {
     "bn": "সাইটের লেখা দেখুন",
@@ -146,6 +126,158 @@
   "dashboard.welcome": {
     "bn": "স্বাগতম, সম্পাদক",
     "en": "Welcome, editor"
+  },
+  "editor.allGroups": {
+    "bn": "সব গ্রুপ",
+    "en": "All groups"
+  },
+  "editor.baseline": {
+    "bn": "মূল লেখা",
+    "en": "Baseline"
+  },
+  "editor.bn": {
+    "bn": "বাংলা লেখা",
+    "en": "Bangla text"
+  },
+  "editor.clearFilters": {
+    "bn": "ফিল্টার মুছুন",
+    "en": "Clear filters"
+  },
+  "editor.close": {
+    "bn": "বন্ধ",
+    "en": "Close"
+  },
+  "editor.count": {
+    "bn": "{shown} / {total}টি কী",
+    "en": "{shown} of {total} keys"
+  },
+  "editor.dirty": {
+    "bn": "{count}টি পরিবর্তন সংরক্ষিত হয়নি",
+    "en": "{count} unsaved changes"
+  },
+  "editor.draft": {
+    "bn": "খসড়া",
+    "en": "Draft"
+  },
+  "editor.draftDiscarded": {
+    "bn": "খসড়া মুছে মূল লেখা ফিরিয়ে আনা হয়েছে।",
+    "en": "Draft discarded; baseline restored."
+  },
+  "editor.edit": {
+    "bn": "সম্পাদনা",
+    "en": "Edit"
+  },
+  "editor.empty": {
+    "bn": "কোনো কী মেলেনি।",
+    "en": "No keys match."
+  },
+  "editor.en": {
+    "bn": "ইংরেজি লেখা",
+    "en": "English text"
+  },
+  "editor.group": {
+    "bn": "গ্রুপ",
+    "en": "Group"
+  },
+  "editor.href": {
+    "bn": "লিংক গন্তব্য",
+    "en": "Link destination"
+  },
+  "editor.hrefHint": {
+    "bn": "খালি রাখলে এই কী লিংক হবে না।",
+    "en": "Leave empty if this key is not a link."
+  },
+  "editor.key": {
+    "bn": "কী",
+    "en": "Key"
+  },
+  "editor.loadFailed": {
+    "bn": "খসড়া লোড করা যায়নি।",
+    "en": "Could not load drafts."
+  },
+  "editor.modified": {
+    "bn": "পরিবর্তিত",
+    "en": "Modified"
+  },
+  "editor.newTab": {
+    "bn": "নতুন ট্যাবে খুলুন",
+    "en": "Open in a new tab"
+  },
+  "editor.noChanges": {
+    "bn": "কোনো অসংরক্ষিত পরিবর্তন নেই",
+    "en": "No unsaved changes"
+  },
+  "editor.pagination.next": {
+    "bn": "পরের",
+    "en": "Next"
+  },
+  "editor.pagination.page": {
+    "bn": "পৃষ্ঠা {page} / {pages}",
+    "en": "Page {page} of {pages}"
+  },
+  "editor.pagination.prev": {
+    "bn": "আগের",
+    "en": "Previous"
+  },
+  "editor.placeholderHint": {
+    "bn": "প্লেসহোল্ডার (যেমন {name}) অপরিবর্তিত রাখুন।",
+    "en": "Keep placeholders such as {name} unchanged."
+  },
+  "editor.previewHint": {
+    "bn": "টেবিলে খসড়া মান দেখানো হচ্ছে; খসড়া না থাকলে মূল লেখা।",
+    "en": "The table shows draft values, or the baseline when no draft exists."
+  },
+  "editor.reset": {
+    "bn": "খসড়া মুছুন",
+    "en": "Discard draft"
+  },
+  "editor.resetConfirm": {
+    "bn": "এই কী-এর খসড়া মুছে মূল লেখা ফিরিয়ে আনবেন?",
+    "en": "Delete this key's draft and restore the baseline?"
+  },
+  "editor.retry": {
+    "bn": "আবার চেষ্টা করুন",
+    "en": "Try again"
+  },
+  "editor.revert": {
+    "bn": "পরিবর্তন ফিরিয়ে নিন",
+    "en": "Revert changes"
+  },
+  "editor.save": {
+    "bn": "খসড়া সংরক্ষণ",
+    "en": "Save draft"
+  },
+  "editor.saveFailed": {
+    "bn": "খসড়া সংরক্ষণ করা যায়নি।",
+    "en": "Could not save the draft."
+  },
+  "editor.saved": {
+    "bn": "খসড়া সংরক্ষিত হয়েছে।",
+    "en": "Draft saved."
+  },
+  "editor.saving": {
+    "bn": "সংরক্ষণ হচ্ছে…",
+    "en": "Saving…"
+  },
+  "editor.search": {
+    "bn": "কী, বাংলা বা ইংরেজি লেখা খুঁজুন",
+    "en": "Search key, Bangla, or English text"
+  },
+  "editor.unsavedLeave": {
+    "bn": "অসংরক্ষিত পরিবর্তন আছে। এখন ছাড়লে সেগুলো হারিয়ে যাবে।",
+    "en": "You have unsaved changes. Leaving now will lose them."
+  },
+  "editor.validation.bn": {
+    "bn": "বাংলা লেখা আবশ্যক।",
+    "en": "Bangla text is required."
+  },
+  "editor.validation.href": {
+    "bn": "লিংক #/, http(s)://, mailto: বা tel: দিয়ে শুরু হতে হবে।",
+    "en": "Link must start with #/, http(s)://, mailto:, or tel:."
+  },
+  "editor.validation.placeholder": {
+    "bn": "প্লেসহোল্ডার {name} অপরিবর্তিত রাখুন।",
+    "en": "Keep the {name} placeholder."
   },
   "groups.about": {
     "bn": "আমাদের সম্পর্কে",
@@ -206,6 +338,66 @@
   "groups.toast": {
     "bn": "নোটিফিকেশন",
     "en": "Notifications"
+  },
+  "login.backToSite": {
+    "bn": "সাইটে ফিরে যান",
+    "en": "Back to site"
+  },
+  "login.email": {
+    "bn": "ইমেইল",
+    "en": "Email"
+  },
+  "login.failed": {
+    "bn": "লগইন করা যায়নি। আবার চেষ্টা করুন।",
+    "en": "Could not sign in. Please try again."
+  },
+  "login.invalid": {
+    "bn": "ইমেইল বা পাসওয়ার্ড সঠিক নয়।",
+    "en": "Email or password is incorrect."
+  },
+  "login.missing": {
+    "bn": "ইমেইল ও পাসওয়ার্ড দিন।",
+    "en": "Enter your email and password."
+  },
+  "login.password": {
+    "bn": "পাসওয়ার্ড",
+    "en": "Password"
+  },
+  "login.setup.body": {
+    "bn": "অ্যাডমিন চালু করতে প্রথমে Supabase প্রকল্প, ডেটাবেস টেবিল ও একজন সম্পাদক ব্যবহারকারী তৈরি করুন।",
+    "en": "To enable the admin, set up the Supabase project, the database table, and an editor account first."
+  },
+  "login.setup.env": {
+    "bn": ".env ফাইলে VITE_SUPABASE_URL ও VITE_SUPABASE_PUBLISHABLE_KEY যোগ করুন।",
+    "en": "Add VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY to .env."
+  },
+  "login.setup.sql": {
+    "bn": "supabase/migrations/0001_content_drafts.sql চালান এবং Auth → Users থেকে সম্পাদক তৈরি করুন।",
+    "en": "Run supabase/migrations/0001_content_drafts.sql and create an editor from Auth → Users."
+  },
+  "login.setup.title": {
+    "bn": "Supabase কনফিগার করা হয়নি",
+    "en": "Supabase is not configured"
+  },
+  "login.submit": {
+    "bn": "লগইন",
+    "en": "Sign in"
+  },
+  "login.submitting": {
+    "bn": "লগইন হচ্ছে…",
+    "en": "Signing in…"
+  },
+  "login.subtitle": {
+    "bn": "খসড়া সম্পাদনা করতে আপনার অ্যাকাউন্টে লগইন করুন।",
+    "en": "Sign in to your account to edit drafts."
+  },
+  "login.title": {
+    "bn": "সম্পাদক লগইন",
+    "en": "Editor sign in"
+  },
+  "login.unconfirmed": {
+    "bn": "ইমেইল নিশ্চিত করা হয়নি। Supabase ড্যাশবোর্ড থেকে ব্যবহারকারী নিশ্চিত করুন।",
+    "en": "Email is not confirmed. Confirm the user in the Supabase dashboard."
   },
   "nav.articles": {
     "bn": "প্রতিবেদন",

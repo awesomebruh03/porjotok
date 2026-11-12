@@ -31,9 +31,9 @@
           {at(current.labelKey)}
         </h1>
         <span
-          class="hidden shrink-0 border border-[#DED8CB] px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-widest text-[#5A636D] sm:inline-block"
+          class="hidden shrink-0 border border-[#FDD835] bg-[#FDD835]/20 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-widest text-[#0F2B34] sm:inline-block"
         >
-          {at("common.readOnly")}
+          {at("common.draftMode")}
         </span>
       </div>
       <p class="mt-0.5 hidden truncate text-xs text-[#5A636D] sm:block">

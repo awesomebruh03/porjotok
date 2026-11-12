@@ -1,9 +1,24 @@
 <script>
-  import { ExternalLink } from "lucide-svelte";
+  import { ExternalLink, LogOut } from "lucide-svelte";
   import { at } from "./adminI18n.svelte.js";
   import { ADMIN_NAV } from "./nav.js";
 
-  let { current, drawerOpen = $bindable(false) } = $props();
+  let {
+    current,
+    drawerOpen = $bindable(false),
+    user = null,
+    onSignOut,
+    signingOut = false,
+    onNavigate,
+  } = $props();
+
+  function follow(event) {
+    if (onNavigate && !onNavigate()) {
+      event.preventDefault();
+      return;
+    }
+    drawerOpen = false;
+  }
 </script>
 
 {#if drawerOpen}
@@ -44,7 +59,7 @@
         <li>
           <a
             href={"#" + item.path}
-            onclick={() => (drawerOpen = false)}
+            onclick={follow}
             aria-current={active ? "page" : undefined}
             class="group relative flex items-center gap-3 rounded-sm px-3 py-2.5 text-sm transition-colors {active
               ? 'bg-white/10 font-semibold text-white'
@@ -71,11 +86,31 @@
   <div class="border-t border-white/10 p-4">
     <a
       href="#/"
+      onclick={follow}
       class="flex items-center justify-between rounded-sm bg-white/5 px-3 py-2 text-xs text-[#ADC5CE] transition-colors hover:bg-white/10 hover:text-white"
     >
       <span>{at("common.viewSite")}</span>
       <ExternalLink size={14} />
     </a>
+
+    {#if user}
+      <div class="mt-3 border-t border-white/10 pt-3">
+        <p class="px-1 text-[9px] uppercase tracking-widest text-[#7B98A2]">
+          {at("auth.signedInAs")}
+        </p>
+        <p class="mt-0.5 truncate px-1 text-xs text-white">{user.email}</p>
+        <button
+          type="button"
+          onclick={onSignOut}
+          disabled={signingOut}
+          class="mt-2 flex w-full items-center justify-center gap-2 rounded-sm border border-white/15 px-3 py-2 text-xs text-[#ADC5CE] transition-colors hover:border-white/30 hover:bg-white/5 hover:text-white disabled:cursor-not-allowed disabled:opacity-60"
+        >
+          <LogOut size={14} />
+          {signingOut ? at("auth.signingOut") : at("auth.signOut")}
+        </button>
+      </div>
+    {/if}
+
     <p
       class="mt-3 flex items-center justify-between px-1 text-[10px] uppercase tracking-widest text-[#7B98A2]"
     >
