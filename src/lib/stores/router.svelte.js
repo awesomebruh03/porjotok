@@ -58,6 +58,15 @@ function parseRoute(hash) {
     return { name: 'search', path: '/search', params: {}, query };
   }
 
+  if (segments[0] === 'admin') {
+    return {
+      name: 'admin',
+      path: segments[1] ? `/admin/${segments[1]}` : '/admin',
+      params: { section: segments[1] || null },
+      query,
+    };
+  }
+
   // Fallback 404 or home
   return { name: 'not-found', path: pathStr, params: {}, query };
 }

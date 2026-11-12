@@ -1,0 +1,270 @@
+{
+  "common.admin": {
+    "bn": "অ্যাডমিন",
+    "en": "Admin"
+  },
+  "common.backToDashboard": {
+    "bn": "ড্যাশবোর্ডে ফিরে যান",
+    "en": "Back to dashboard"
+  },
+  "common.bangla": {
+    "bn": "বাংলা",
+    "en": "Bangla"
+  },
+  "common.brand": {
+    "bn": "পর্যটক",
+    "en": "Porjotok"
+  },
+  "common.english": {
+    "bn": "English",
+    "en": "English"
+  },
+  "common.language": {
+    "bn": "ভাষা",
+    "en": "Language"
+  },
+  "common.monogram": {
+    "bn": "প",
+    "en": "P"
+  },
+  "common.prototype": {
+    "bn": "প্রোটোটাইপ",
+    "en": "Prototype"
+  },
+  "common.readOnly": {
+    "bn": "শুধুমাত্র পড়ার জন্য",
+    "en": "Read only"
+  },
+  "common.version": {
+    "bn": "সংস্করণ ১.০",
+    "en": "Version 1.0"
+  },
+  "common.viewSite": {
+    "bn": "সাইট দেখুন",
+    "en": "View site"
+  },
+  "content.count.keys": {
+    "bn": "{count}টি কী",
+    "en": "{count} keys"
+  },
+  "content.count.links": {
+    "bn": "{count}টি লিংক",
+    "en": "{count} links"
+  },
+  "content.empty": {
+    "bn": "কোনো লিংক পাওয়া যায়নি",
+    "en": "No links found"
+  },
+  "content.groups.hint": {
+    "bn": "প্রতিটি গ্রুপের কী ও লিংকের সংখ্যা",
+    "en": "Key and link counts per group"
+  },
+  "content.groups.title": {
+    "bn": "পেজ অনুযায়ী লেখা",
+    "en": "Copy by page"
+  },
+  "content.links.hint": {
+    "bn": "নেভিগেশন, ফুটার ও স্ট্যাটিক বাটনের গন্তব্য",
+    "en": "Destinations for navigation, footer, and static buttons"
+  },
+  "content.links.title": {
+    "bn": "লিংক গন্তব্য",
+    "en": "Link destinations"
+  },
+  "content.subtitle": {
+    "bn": "পাবলিক সাইটের সব লেখা ও লিংক এক জায়গায়",
+    "en": "Every piece of public copy and every link in one place"
+  },
+  "content.table.href": {
+    "bn": "গন্তব্য",
+    "en": "Destination"
+  },
+  "content.table.key": {
+    "bn": "কী",
+    "en": "Key"
+  },
+  "content.table.newTab": {
+    "bn": "নতুন ট্যাব",
+    "en": "New tab"
+  },
+  "content.table.text": {
+    "bn": "লেখা",
+    "en": "Text"
+  },
+  "dashboard.lead": {
+    "bn": "এখান থেকে সাইটের লেখা, প্রতিবেদন ও প্রকাশনা পরিচালনা করা যাবে। এই ধাপে অ্যাডমিন কেবল পড়ার জন্য।",
+    "en": "Manage site copy, articles, and publications from here. In this step the admin is read-only."
+  },
+  "dashboard.notice.body": {
+    "bn": "অ্যাডমিন শেল প্রস্তুত। পরের ধাপে লেখা সম্পাদনা, খসড়া ও প্রকাশনা যোগ হবে; প্রকাশনার আগে Supabase লগইন চালু হবে।",
+    "en": "The admin shell is ready. Editing, drafts, and publishing arrive next, with Supabase login enabled before anything can be published."
+  },
+  "dashboard.notice.title": {
+    "bn": "এই ধাপে সম্পাদনা বন্ধ",
+    "en": "Editing is off in this step"
+  },
+  "dashboard.quick.content": {
+    "bn": "সাইটের লেখা দেখুন",
+    "en": "Browse site copy"
+  },
+  "dashboard.quick.contentHint": {
+    "bn": "{keys}টি কী ও {links}টি লিংক",
+    "en": "{keys} keys and {links} links"
+  },
+  "dashboard.quick.site": {
+    "bn": "সাইট দেখুন",
+    "en": "View the site"
+  },
+  "dashboard.quick.siteHint": {
+    "bn": "পাবলিক সাইট নতুন ট্যাবে খুলুন",
+    "en": "Open the public site in a new tab"
+  },
+  "dashboard.quick.title": {
+    "bn": "দ্রুত কাজ",
+    "en": "Quick actions"
+  },
+  "dashboard.stat.groups": {
+    "bn": "পেজ গ্রুপ",
+    "en": "Page groups"
+  },
+  "dashboard.stat.keys": {
+    "bn": "মোট কনটেন্ট কী",
+    "en": "Content keys"
+  },
+  "dashboard.stat.languages": {
+    "bn": "ভাষা",
+    "en": "Languages"
+  },
+  "dashboard.stat.links": {
+    "bn": "লিংক গন্তব্য",
+    "en": "Link destinations"
+  },
+  "dashboard.subtitle": {
+    "bn": "প্রকাশনার সামগ্রিক অবস্থা একনজরে",
+    "en": "An overview of the publication"
+  },
+  "dashboard.welcome": {
+    "bn": "স্বাগতম, সম্পাদক",
+    "en": "Welcome, editor"
+  },
+  "groups.about": {
+    "bn": "আমাদের সম্পর্কে",
+    "en": "About"
+  },
+  "groups.articleDetail": {
+    "bn": "প্রতিবেদন পাঠ",
+    "en": "Article detail"
+  },
+  "groups.articles": {
+    "bn": "সকল প্রতিবেদন",
+    "en": "All articles"
+  },
+  "groups.categories": {
+    "bn": "বিষয়ভিত্তিক বিভাগ",
+    "en": "Categories"
+  },
+  "groups.contact": {
+    "bn": "যোগাযোগ",
+    "en": "Contact"
+  },
+  "groups.footer": {
+    "bn": "ফুটার",
+    "en": "Footer"
+  },
+  "groups.header": {
+    "bn": "হেডার",
+    "en": "Header"
+  },
+  "groups.home": {
+    "bn": "হোমপেজ",
+    "en": "Homepage"
+  },
+  "groups.meta": {
+    "bn": "সাইট মেটাডেটা",
+    "en": "Site metadata"
+  },
+  "groups.modal": {
+    "bn": "সাবস্ক্রিপশন মডাল",
+    "en": "Subscription modal"
+  },
+  "groups.notfound": {
+    "bn": "৪০৪ পেজ",
+    "en": "404 page"
+  },
+  "groups.publicationDetail": {
+    "bn": "সংখ্যা বিবরণী",
+    "en": "Issue detail"
+  },
+  "groups.publications": {
+    "bn": "সংখ্যা সংগ্রহ",
+    "en": "Issues"
+  },
+  "groups.search": {
+    "bn": "অনুসন্ধান",
+    "en": "Search"
+  },
+  "groups.toast": {
+    "bn": "নোটিফিকেশন",
+    "en": "Notifications"
+  },
+  "nav.articles": {
+    "bn": "প্রতিবেদন",
+    "en": "Articles"
+  },
+  "nav.categories": {
+    "bn": "বিষয়ভিত্তিক বিভাগ",
+    "en": "Categories"
+  },
+  "nav.close": {
+    "bn": "বন্ধ করুন",
+    "en": "Close"
+  },
+  "nav.content": {
+    "bn": "সাইটের লেখা ও লিংক",
+    "en": "Site copy & links"
+  },
+  "nav.dashboard": {
+    "bn": "ড্যাশবোর্ড",
+    "en": "Dashboard"
+  },
+  "nav.media": {
+    "bn": "মিডিয়া লাইব্রেরি",
+    "en": "Media library"
+  },
+  "nav.menu": {
+    "bn": "মেনু",
+    "en": "Menu"
+  },
+  "nav.messages": {
+    "bn": "বার্তা ও যোগাযোগ",
+    "en": "Messages"
+  },
+  "nav.primary": {
+    "bn": "অ্যাডমিন নেভিগেশন",
+    "en": "Admin navigation"
+  },
+  "nav.publications": {
+    "bn": "সংখ্যা ও প্রকাশনা",
+    "en": "Issues & publications"
+  },
+  "nav.settings": {
+    "bn": "সেটিংস",
+    "en": "Settings"
+  },
+  "nav.subscribers": {
+    "bn": "সাবস্ক্রাইবার",
+    "en": "Subscribers"
+  },
+  "nav.users": {
+    "bn": "ব্যবহারকারী ও অনুমতি",
+    "en": "Users & permissions"
+  },
+  "placeholder.body": {
+    "bn": "এই বিভাগটি পরবর্তী ধাপে তৈরি হবে। এখন অ্যাডমিন শেল ও সাইটের লেখার তালিকা দেখতে পারেন।",
+    "en": "This section will be built in a later step. For now you can explore the admin shell and the site copy list."
+  },
+  "placeholder.title": {
+    "bn": "{name} — শীঘ্রই আসছে",
+    "en": "{name} — coming soon"
+  }
+}
