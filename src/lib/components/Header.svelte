@@ -1,6 +1,7 @@
 <script>
   import { router, navigate } from "../stores/router.svelte.js";
   import { openSubscriptionModal } from "../stores/ui.svelte.js";
+  import { t, link } from "../stores/content.svelte.js";
   import TranslateButton from "./TranslateButton.svelte";
 
   let mobileMenuOpen = $state(false);
@@ -12,7 +13,7 @@
   function openSubscribeModal() {
     openSubscriptionModal({
       type: "annual",
-      issueTitle: "বার্ষিক সাবস্ক্রিপশন (৬টি সংখ্যা)",
+      issueTitle: t("header.subscribe.planTitle"),
       price: 1200,
     });
   }
@@ -45,17 +46,18 @@
     <!-- Left: Brand Logo & Editorial Subtitle -->
     <div class="flex items-center space-x-3 sm:space-x-4">
       <a
-        href="#/"
+        {...link("header.brand")}
         data-no-translate
         class="font-serif text-3xl font-bold tracking-tight text-[#0F2B34] transition-colors hover:text-[#A31D1D] sm:text-4xl"
       >
-        পর্যটক
+        {t("header.brand")}
       </a>
       <span class="select-none text-xl font-light text-[#8C4A42]">|</span>
       <span
+        data-content-key="header.tagline"
         class="hidden text-xs font-normal tracking-wide text-[#6B3A33] sm:inline-block sm:text-sm"
       >
-        পর্যটন ভাবনা ও বিকাশের পত্রিকা
+        {t("header.tagline")}
       </span>
     </div>
 
@@ -64,49 +66,49 @@
       class="hidden items-center space-x-8 text-[15px] font-medium text-[#1E2328] md:flex lg:space-x-10"
     >
       <a
-        href="#/publications"
+        {...link("header.nav.publications")}
         class="py-1 transition-colors hover:text-[#A31D1D] {route.name ===
           'publications' || route.name === 'publication-detail'
           ? 'border-b-2 border-[#A31D1D] text-[#A31D1D]'
           : ''}"
       >
-        প্রকাশিত সংখ্যা
+        {t("header.nav.publications")}
       </a>
       <a
-        href="#/categories/travel"
+        {...link("header.nav.travel")}
         class="py-1 transition-colors hover:text-[#A31D1D] {route.params
           ?.category === 'travel'
           ? 'border-b-2 border-[#A31D1D] text-[#A31D1D]'
           : ''}"
       >
-        যাত্রাবিরতি
+        {t("header.nav.travel")}
       </a>
       <a
-        href="#/categories/heritage"
+        {...link("header.nav.heritage")}
         class="py-1 transition-colors hover:text-[#A31D1D] {route.params
           ?.category === 'heritage'
           ? 'border-b-2 border-[#A31D1D] text-[#A31D1D]'
           : ''}"
       >
-        প্রবন্ধ
+        {t("header.nav.heritage")}
       </a>
       <a
-        href="#/articles"
+        {...link("header.nav.articles")}
         class="py-1 transition-colors hover:text-[#A31D1D] {route.name ===
           'articles' || route.name === 'article-detail'
           ? 'border-b-2 border-[#A31D1D] text-[#A31D1D]'
           : ''}"
       >
-        ধারাবাহিক
+        {t("header.nav.articles")}
       </a>
       <a
-        href="#/categories"
+        {...link("header.nav.categories")}
         class="py-1 transition-colors hover:text-[#A31D1D] {route.name ===
         'categories'
           ? 'border-b-2 border-[#A31D1D] text-[#A31D1D]'
           : ''}"
       >
-        সকল বিভাগ
+        {t("header.nav.categories")}
       </a>
     </nav>
 
@@ -122,20 +124,23 @@
               type="text"
               bind:value={searchQuery}
               onkeydown={handleSearch}
-              placeholder="অনুসন্ধান করুন..."
+              placeholder={t("header.search.placeholder")}
+              data-content-key-placeholder="header.search.placeholder"
               class="w-28 border-none bg-transparent px-1 text-xs text-[#1E2328] outline-none sm:w-44 sm:text-sm"
               autofocus
             />
             <button
               onclick={triggerSearch}
+              data-content-key="header.search.submit"
               class="px-1 text-xs font-semibold text-[#A31D1D] hover:underline"
             >
-              খুঁজুন
+              {t("header.search.submit")}
             </button>
             <button
               onclick={() => (searchInputOpen = false)}
               class="ml-1 text-sm leading-none text-gray-400 hover:text-black"
-              title="বন্ধ করুন"
+              title={t("header.search.close")}
+              data-content-key-title="header.search.close"
             >
               ✕
             </button>
@@ -144,7 +149,8 @@
           <button
             onclick={() => (searchInputOpen = true)}
             class="rounded p-1.5 text-[#1E2328] transition-colors hover:text-[#A31D1D]"
-            title="অনুসন্ধান"
+            title={t("header.search.open")}
+            data-content-key-title="header.search.open"
           >
             <svg
               class="h-5 w-5"
@@ -169,16 +175,18 @@
       <!-- Subscribe Button (Exact match from Header reference) -->
       <button
         onclick={openSubscribeModal}
+        data-content-key="header.subscribe"
         class="hidden items-center justify-center border border-[#1E2328] bg-transparent px-5 py-1.5 text-sm font-medium text-[#1E2328] transition-all duration-150 hover:bg-[#1E2328] hover:text-[#F4F1EA] active:scale-95 sm:inline-flex"
       >
-        গ্রাহক হোন
+        {t("header.subscribe")}
       </button>
 
       <!-- Mobile Hamburger Button -->
       <button
         onclick={() => (mobileMenuOpen = !mobileMenuOpen)}
         class="p-1.5 text-[#1E2328] hover:text-[#A31D1D] md:hidden"
-        aria-label="মেনু খুলুন"
+        aria-label={t("header.menu.toggle")}
+        data-content-key-aria-label="header.menu.toggle"
       >
         {#if mobileMenuOpen}
           <svg
@@ -218,65 +226,68 @@
     <div
       class="space-y-3 border-b border-[#1E2328] bg-[#F4F1EA] px-6 py-5 shadow-lg md:hidden"
     >
-      <div class="border-b border-[#E6E1D5] pb-2 text-xs text-[#8C4A42]">
-        পর্যটন ভাবনা ও বিকাশের পত্রিকা
+      <div
+        data-content-key="header.mobile.tagline"
+        class="border-b border-[#E6E1D5] pb-2 text-xs text-[#8C4A42]"
+      >
+        {t("header.mobile.tagline")}
       </div>
       <div class="flex flex-col space-y-2 text-base font-medium text-[#1E2328]">
         <a
-          href="#/"
+          {...link("header.mobile.home")}
           onclick={() => (mobileMenuOpen = false)}
           class="py-1.5 transition-colors hover:text-[#A31D1D]"
         >
-          হোম
+          {t("header.mobile.home")}
         </a>
         <a
-          href="#/publications"
+          {...link("header.mobile.publications")}
           onclick={() => (mobileMenuOpen = false)}
           class="py-1.5 transition-colors hover:text-[#A31D1D]"
         >
-          সংখ্যা সংগ্রহ (ম্যাগাজিন)
+          {t("header.mobile.publications")}
         </a>
         <a
-          href="#/categories/travel"
+          {...link("header.mobile.travel")}
           onclick={() => (mobileMenuOpen = false)}
           class="py-1.5 transition-colors hover:text-[#A31D1D]"
         >
-          গন্তব্য ও ভ্রমণ
+          {t("header.mobile.travel")}
         </a>
         <a
-          href="#/categories/heritage"
+          {...link("header.mobile.heritage")}
           onclick={() => (mobileMenuOpen = false)}
           class="py-1.5 transition-colors hover:text-[#A31D1D]"
         >
-          ঐতিহ্য ও স্থাপত্য
+          {t("header.mobile.heritage")}
         </a>
         <a
-          href="#/articles"
+          {...link("header.mobile.articles")}
           onclick={() => (mobileMenuOpen = false)}
           class="py-1.5 transition-colors hover:text-[#A31D1D]"
         >
-          সকল প্রতিবেদন
+          {t("header.mobile.articles")}
         </a>
         <a
-          href="#/categories"
+          {...link("header.mobile.categories")}
           onclick={() => (mobileMenuOpen = false)}
           class="py-1.5 transition-colors hover:text-[#A31D1D]"
         >
-          সকল বিষয়ভিত্তিক বিভাগ
+          {t("header.mobile.categories")}
         </a>
         <a
-          href="#/about"
+          {...link("header.mobile.about")}
           onclick={() => (mobileMenuOpen = false)}
           class="py-1.5 transition-colors hover:text-[#A31D1D]"
         >
-          আমাদের সম্পর্কে
+          {t("header.mobile.about")}
         </a>
         <a
-          href="#/contact"
+          {...link("header.mobile.contact")}
           onclick={() => (mobileMenuOpen = false)}
           class="py-1.5 transition-colors hover:text-[#A31D1D]"
         >
-          যোগাযোগ ও কার্যালয়
+          {t("header.mobile.contact")}
         </a>
       </div>
       <div class="border-t border-[#E6E1D5] pt-3">
@@ -285,9 +296,10 @@
             mobileMenuOpen = false;
             openSubscribeModal();
           }}
+          data-content-key="header.mobile.subscribe"
           class="w-full bg-[#A31D1D] py-2 text-center font-medium text-white shadow-sm hover:bg-[#B72424]"
         >
-          সাবস্ক্রাইব করুন
+          {t("header.mobile.subscribe")}
         </button>
       </div>
     </div>

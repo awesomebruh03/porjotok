@@ -1,1 +1,190 @@
-{}
+{
+  "footer.brand": {
+    "bn": "পর্যটক",
+    "en": ""
+  },
+  "footer.copyright": {
+    "bn": "© ২০২৬ পর্যটক ● সর্বস্বত্ব সংরক্ষিত",
+    "en": ""
+  },
+  "footer.link.about": {
+    "bn": "আমাদের সম্পর্কে",
+    "en": "",
+    "href": "#/about",
+    "newTab": false
+  },
+  "footer.link.advertise": {
+    "bn": "বিজ্ঞাপন",
+    "en": "",
+    "href": "#/contact",
+    "newTab": false
+  },
+  "footer.link.contribute": {
+    "bn": "লেখা পাঠান",
+    "en": "",
+    "href": "#/contact",
+    "newTab": false
+  },
+  "footer.link.facebook": {
+    "bn": "ফেসবুক পেজ",
+    "en": "",
+    "href": "https://facebook.com",
+    "newTab": true
+  },
+  "footer.newsletter.label": {
+    "bn": "নতুন সংখ্যার খবর ইমেইলে পান",
+    "en": ""
+  },
+  "footer.newsletter.placeholder": {
+    "bn": "আপনার ইমেইল ঠিকানা...",
+    "en": ""
+  },
+  "footer.newsletter.privacy": {
+    "bn": "স্প্যামমুক্ত গ্রাহকসেবা। আপনি যেকোনো সময় সদস্যপদ প্রত্যাহার করতে পারবেন।",
+    "en": ""
+  },
+  "footer.newsletter.submit": {
+    "bn": "জমা দিন",
+    "en": ""
+  },
+  "footer.newsletter.submitting": {
+    "bn": "অপেক্ষা করুন...",
+    "en": ""
+  },
+  "footer.tagline": {
+    "bn": "পর্যটন ভাবনা ও বিকাশের পত্রিকা",
+    "en": ""
+  },
+  "footer.toast.invalidEmail": {
+    "bn": "অনুগ্রহ করে একটি সঠিক ইমেইল ঠিকানা প্রদান করুন।",
+    "en": ""
+  },
+  "footer.toast.success": {
+    "bn": "ধন্যবাদ! পর্যটক পত্রিকার নিউজলেটারে আপনি সফলভাবে যুক্ত হয়েছেন।",
+    "en": ""
+  },
+  "header.brand": {
+    "bn": "পর্যটক",
+    "en": "",
+    "href": "#/",
+    "newTab": false
+  },
+  "header.menu.toggle": {
+    "bn": "মেনু খুলুন",
+    "en": ""
+  },
+  "header.mobile.about": {
+    "bn": "আমাদের সম্পর্কে",
+    "en": "",
+    "href": "#/about",
+    "newTab": false
+  },
+  "header.mobile.articles": {
+    "bn": "সকল প্রতিবেদন",
+    "en": "",
+    "href": "#/articles",
+    "newTab": false
+  },
+  "header.mobile.categories": {
+    "bn": "সকল বিষয়ভিত্তিক বিভাগ",
+    "en": "",
+    "href": "#/categories",
+    "newTab": false
+  },
+  "header.mobile.contact": {
+    "bn": "যোগাযোগ ও কার্যালয়",
+    "en": "",
+    "href": "#/contact",
+    "newTab": false
+  },
+  "header.mobile.heritage": {
+    "bn": "ঐতিহ্য ও স্থাপত্য",
+    "en": "",
+    "href": "#/categories/heritage",
+    "newTab": false
+  },
+  "header.mobile.home": {
+    "bn": "হোম",
+    "en": "",
+    "href": "#/",
+    "newTab": false
+  },
+  "header.mobile.publications": {
+    "bn": "সংখ্যা সংগ্রহ (ম্যাগাজিন)",
+    "en": "",
+    "href": "#/publications",
+    "newTab": false
+  },
+  "header.mobile.subscribe": {
+    "bn": "সাবস্ক্রাইব করুন",
+    "en": ""
+  },
+  "header.mobile.tagline": {
+    "bn": "পর্যটন ভাবনা ও বিকাশের পত্রিকা",
+    "en": ""
+  },
+  "header.mobile.travel": {
+    "bn": "গন্তব্য ও ভ্রমণ",
+    "en": "",
+    "href": "#/categories/travel",
+    "newTab": false
+  },
+  "header.nav.articles": {
+    "bn": "ধারাবাহিক",
+    "en": "",
+    "href": "#/articles",
+    "newTab": false
+  },
+  "header.nav.categories": {
+    "bn": "সকল বিভাগ",
+    "en": "",
+    "href": "#/categories",
+    "newTab": false
+  },
+  "header.nav.heritage": {
+    "bn": "প্রবন্ধ",
+    "en": "",
+    "href": "#/categories/heritage",
+    "newTab": false
+  },
+  "header.nav.publications": {
+    "bn": "প্রকাশিত সংখ্যা",
+    "en": "",
+    "href": "#/publications",
+    "newTab": false
+  },
+  "header.nav.travel": {
+    "bn": "যাত্রাবিরতি",
+    "en": "",
+    "href": "#/categories/travel",
+    "newTab": false
+  },
+  "header.search.close": {
+    "bn": "বন্ধ করুন",
+    "en": ""
+  },
+  "header.search.open": {
+    "bn": "অনুসন্ধান",
+    "en": ""
+  },
+  "header.search.placeholder": {
+    "bn": "অনুসন্ধান করুন...",
+    "en": ""
+  },
+  "header.search.submit": {
+    "bn": "খুঁজুন",
+    "en": ""
+  },
+  "header.subscribe": {
+    "bn": "গ্রাহক হোন",
+    "en": ""
+  },
+  "header.subscribe.planTitle": {
+    "bn": "বার্ষিক সাবস্ক্রিপশন (৬টি সংখ্যা)",
+    "en": ""
+  },
+  "header.tagline": {
+    "bn": "পর্যটন ভাবনা ও বিকাশের পত্রিকা",
+    "en": ""
+  }
+}
