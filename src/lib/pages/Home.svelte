@@ -3,6 +3,8 @@
   import { openSubscriptionModal } from "../stores/ui.svelte.js";
   import { articles } from "../data/articles.js";
   import { publications } from "../data/publications.js";
+  import { t, link, hrefOf } from "../stores/content.svelte.js";
+  import RichText from "../components/RichText.svelte";
 
   // Specific items from mock data
   const coverStory = articles.find((a) => a.id === "mustard-banyan-tree");
@@ -20,7 +22,7 @@
   function openSubscribeModal(plan = "annual", issueTitle = "") {
     openSubscriptionModal({
       type: plan,
-      issueTitle: issueTitle || "বার্ষিক সাবস্ক্রিপশন (৬টি মুদ্রিত সংখ্যা)",
+      issueTitle: issueTitle || t("home.subscribe.annualPlanTitle"),
       price: plan === "annual" ? 1200 : 220,
     });
   }
@@ -61,14 +63,16 @@
         class="flex items-center justify-between border-b border-white/20 pb-3"
       >
         <span
+          data-content-key="home.hero.topbarLeft"
           class="text-xs font-light tracking-wider text-gray-200 sm:text-sm"
         >
-          দ্বিমাসিক প্রামাণ্য ভ্রমণ ও ভৌগোলিক সাময়িকী
+          {t("home.hero.topbarLeft")}
         </span>
         <span
+          data-content-key="home.hero.topbarRight"
           class="hidden text-xs tracking-widest text-[#FDD835] sm:inline-block"
         >
-          মুদ্রিত ও ডিজিটাল প্রকাশনা
+          {t("home.hero.topbarRight")}
         </span>
       </div>
     </div>
@@ -82,36 +86,39 @@
         <div class="space-y-5 lg:col-span-8">
           <!-- Yellow Badge -->
           <div
+            data-content-key="home.hero.issueBadge"
             class="inline-flex items-center bg-[#FDD835] px-3 py-1 text-xs font-semibold tracking-wide text-[#0F2B34] shadow-sm sm:text-sm"
           >
             <span class="mr-2 text-xs text-[#A31D1D]">■</span>
-            সেপ্টেম্বর-অক্টোবর ২০২৬ সংখ্যা
+            {t("home.hero.issueBadge")}
           </div>
 
           <!-- Main Headline -->
           <h1
+            data-content-key="home.hero.headline"
             class="font-serif text-4xl font-extrabold leading-[1.15] tracking-tight text-white sm:text-6xl lg:text-7xl"
           >
-            দেশকে দেখি<br />
-            <span class="text-white">নতুন জানালায়</span>
+            <RichText key="home.hero.headline" highlightClass="text-white" />
           </h1>
 
           <!-- Editorial Lead Paragraph -->
           <p
+            data-content-key="home.hero.lead"
             class="max-w-2xl text-base font-light leading-relaxed text-gray-200/90 sm:text-lg"
           >
-            বরেন্দ্র অঞ্চলের বিস্তীর্ণ হলদে দিগন্তে কুয়াশার চাদর আর একাকিত্বে
-            সগৌরব বটছায়া প্রান্তিক জনপদের মাটির সুর ও লোকজীবনের অনুসন্ধান
+            {t("home.hero.lead")}
           </p>
 
           <!-- CTA Buttons & Issue Meta -->
           <div class="flex flex-wrap items-center gap-5 pt-2">
             <!-- Red CTA Button with Yellow Accent Bracket -->
             <button
-              onclick={() => navigate("/publication/issue-38")}
+              onclick={() => navigate(hrefOf("home.hero.readIssue"))}
               class="btn-red-accent group inline-flex items-center space-x-2 px-6 py-3 text-sm shadow-lg active:scale-95 sm:text-base"
             >
-              <span>সংখ্যাটি পড়ুন</span>
+              <span data-content-key="home.hero.readIssue"
+                >{t("home.hero.readIssue")}</span
+              >
               <span class="transition-transform group-hover:translate-x-1"
                 >→</span
               >
@@ -119,8 +126,11 @@
             </button>
 
             <!-- Issue Volume Text -->
-            <span class="text-sm font-light tracking-wide text-gray-300">
-              সংখ্যা ৩৮ | বর্ষ ১২
+            <span
+              data-content-key="home.hero.volume"
+              class="text-sm font-light tracking-wide text-gray-300"
+            >
+              {t("home.hero.volume")}
             </span>
           </div>
         </div>
@@ -134,12 +144,20 @@
             class="backdrop-blur-xs border-l-3 max-w-[240px] space-y-1 border-[#FDD835] bg-[#0B2027]/75 p-3.5 text-xs text-gray-300"
           >
             <p
+              data-content-key="home.hero.photoTitle"
               class="text-[11px] font-semibold uppercase tracking-wider text-[#FDD835]"
             >
-              আলোকচিত্র
+              {t("home.hero.photoTitle")}
             </p>
-            <p class="font-medium text-white">ছবি: শাহরিয়ার বায়েজিদ</p>
-            <p class="text-gray-400">স্থান: নাচোল, চাঁপাইনবাবগঞ্জ</p>
+            <p
+              data-content-key="home.hero.photoCredit"
+              class="font-medium text-white"
+            >
+              {t("home.hero.photoCredit")}
+            </p>
+            <p data-content-key="home.hero.photoLocation" class="text-gray-400">
+              {t("home.hero.photoLocation")}
+            </p>
           </div>
 
           <!-- Scroll Down Anchor -->
@@ -147,7 +165,9 @@
             onclick={() => scrollToSection("issue-archive")}
             class="group flex cursor-pointer items-center space-x-2 text-xs text-gray-300 transition-colors hover:text-[#FDD835] sm:text-sm"
           >
-            <span>নিচে নামুন</span>
+            <span data-content-key="home.hero.scrollDown"
+              >{t("home.hero.scrollDown")}</span
+            >
             <div
               class="rounded-xs flex h-6 w-6 items-center justify-center border border-gray-400/60 transition-colors group-hover:border-[#FDD835]"
             >
@@ -182,9 +202,10 @@
             মুদ্রিত ত্রৈমাসিক সংকলন
           </span> -->
           <h2
+            data-content-key="home.archive.heading"
             class="mb-2 font-serif text-3xl font-bold tracking-tight text-white sm:text-4xl"
           >
-            বিশেষ প্রবন্ধ
+            {t("home.archive.heading")}
           </h2>
           <div class="h-1 w-16 bg-[#FDD835]"></div>
         </div>
@@ -241,14 +262,16 @@
                   class="absolute inset-x-0 top-0 bg-gradient-to-b from-black/80 via-black/40 to-transparent p-3 text-center"
                 >
                   <div
+                    data-content-key="home.archive.coverBrand"
                     class="font-serif text-lg font-bold tracking-wide text-white"
                   >
-                    পর্যটক
+                    {t("home.archive.coverBrand")}
                   </div>
                   <div
+                    data-content-key="home.archive.coverFrequency"
                     class="text-[9px] font-light tracking-widest text-[#FDD835]"
                   >
-                    ত্রৈমাসিক পত্রিকা
+                    {t("home.archive.coverFrequency")}
                   </div>
                 </div>
 
@@ -290,8 +313,14 @@
               >
                 {issue.title}
               </h3>
-              <p class="mt-0.5 text-xs text-[#8BA3AC]">
-                সংখ্যা {issue.issueNumber} • পৃষ্ঠা {issue.pageCount}
+              <p
+                data-content-key="home.archive.issueMeta"
+                class="mt-0.5 text-xs text-[#8BA3AC]"
+              >
+                {t("home.archive.issueMeta", {
+                  issueNumber: issue.issueNumber,
+                  pageCount: issue.pageCount,
+                })}
               </p>
             </div>
           </div>
@@ -321,13 +350,15 @@
           class="flex items-center space-x-2 text-xs font-semibold tracking-wide text-[#FDD835] sm:text-sm"
         >
           <span class="text-xs">■</span>
-          <span>চলতি সংখ্যার প্রধান নিবন্ধসমূহ</span>
+          <span data-content-key="home.reflection.heading"
+            >{t("home.reflection.heading")}</span
+          >
         </div>
         <div
           class="text-xs text-[#7B98A2] transition-all duration-300 ease-in-out hover:text-base hover:text-[#C41E24]"
         >
-          <a href="http://localhost:5173/#/publication/issue-38"
-            >সূচিপত্র একনজরে</a
+          <a {...link("home.reflection.tocLink")}
+            >{t("home.reflection.tocLink")}</a
           >
         </div>
       </div>
@@ -388,9 +419,10 @@
         >
           <div class="flex items-center space-x-3">
             <span
+              data-content-key="home.cover.badge"
               class="bg-[#A31D1D] px-2.5 py-0.5 text-[11px] font-medium text-white"
             >
-              প্রচ্ছদ প্রতিবেদন
+              {t("home.cover.badge")}
             </span>
             <!-- <span class="font-mono text-[#4B5563]">
               নথি নং: {coverStory.docNumber}
@@ -473,17 +505,11 @@
             <div
               class="space-y-4 text-sm font-light leading-relaxed text-[#374151] sm:text-base"
             >
-              <p>
-                সূর্যোদয়ের প্রথম প্রহরে যখন ঘন কুয়াশা বরেন্দ্রভূমির দিগন্তকে
-                ঢেকে দেয়, তখন দূর থেকে কেবল এই শতবর্ষী ছায়াদায়ী মহীরুহের
-                অবয়ব ভেসে ওঠে। হাজারো মানুষের পদরেখা মিলিয়ে গেছে এই বৃক্ষতলে।
-                হলুদ সরিষার সুবাস আর মেঠোপথের বাঁকে লুকিয়ে থাকা মৌন ঐতিহ্যের
-                মাঝে আজও কীভাবে বেঁচে থাকে কৃষকের সরল গল্প?
+              <p data-content-key="home.cover.paragraph1">
+                {t("home.cover.paragraph1")}
               </p>
-              <p>
-                লোকসংস্কৃতির অবিচ্ছেদ্য উপাদান বটগাছ কেবল একটি প্রাকৃতিক বৃক্ষ
-                নয়; এটি বাংলা জনপদের সামাজিক আড্ডা, মেলা ও দীর্ঘ যাত্রাপথের
-                জিরো পয়েন্ট।
+              <p data-content-key="home.cover.paragraph2">
+                {t("home.cover.paragraph2")}
               </p>
             </div>
 
@@ -491,11 +517,17 @@
             <div
               class="flex flex-wrap items-center justify-between gap-4 border-t border-[#E6E1D5] pt-4"
             >
-              <div class="text-xs text-[#4B5563] sm:text-sm">
-                লেখা: <span class="font-medium text-[#1E2328]"
+              <div
+                data-content-key="home.cover.authorLabel"
+                class="text-xs text-[#4B5563] sm:text-sm"
+              >
+                {t("home.cover.authorLabel")}
+                <span class="font-medium text-[#1E2328]"
                   >{coverStory.author}</span
                 >
-                | ছবি:
+                <span data-content-key="home.cover.photoLabel"
+                  >{t("home.cover.photoLabel")}</span
+                >
                 <span class="font-medium text-[#1E2328]"
                   >{coverStory.photographer}</span
                 >
@@ -506,7 +538,9 @@
                 onclick={() => navigate(`/article/${coverStory.id}`)}
                 class="inline-flex items-center space-x-2 bg-[#1F2937] px-5 py-2.5 text-xs font-medium tracking-wide text-white shadow-sm transition-all hover:bg-black active:scale-95 sm:text-sm"
               >
-                <span>সম্পূর্ণ পড়ুন</span>
+                <span data-content-key="home.cover.readFull"
+                  >{t("home.cover.readFull")}</span
+                >
                 <span>→</span>
               </button>
             </div>
@@ -529,12 +563,15 @@
           class="mb-1 flex items-center space-x-2 text-xs font-semibold text-[#A31D1D]"
         >
           <span>■</span>
-          <span>ধারাবাহিক</span>
+          <span data-content-key="home.latest.eyebrow"
+            >{t("home.latest.eyebrow")}</span
+          >
         </div>
         <h2
+          data-content-key="home.latest.heading"
           class="mb-2 font-serif text-3xl font-bold tracking-tight text-[#0F2B34] sm:text-4xl"
         >
-          বিশেষ প্রবন্ধ
+          {t("home.latest.heading")}
         </h2>
         <div class="h-1 w-16 bg-[#A31D1D]"></div>
       </div>
@@ -610,10 +647,11 @@
       <!-- Center Bottom Button: সকল আর্কাইভ প্রতিবেদন দেখুন -->
       <div class="mt-12 text-center">
         <button
-          onclick={() => navigate("/articles")}
+          onclick={() => navigate(hrefOf("home.latest.viewAll"))}
+          data-content-key="home.latest.viewAll"
           class="shadow-xs border border-[#1E2328] px-8 py-3 text-sm font-semibold text-[#1E2328] transition-all duration-200 hover:bg-[#1E2328] hover:text-white active:scale-95"
         >
-          সকল আর্কাইভ প্রতিবেদন দেখুন
+          {t("home.latest.viewAll")}
         </button>
       </div>
     </div>
@@ -638,22 +676,26 @@
               class="flex items-center space-x-2 text-xs font-semibold tracking-wide text-[#FDD835]"
             >
               <span>✉</span>
-              <span>ডাকযোগে বার্ষিক গ্রাহক সেবা</span>
+              <span data-content-key="home.subscribe.eyebrow"
+                >{t("home.subscribe.eyebrow")}</span
+              >
             </div>
 
             <h2
+              data-content-key="home.subscribe.headline"
               class="font-serif text-2xl font-bold leading-tight text-white sm:text-4xl lg:text-[40px]"
             >
-              প্রত্যেক সংখ্যার মুদ্রিত কপি পৌঁছে যাবে<br />
-              <span class="text-white">আপনার ঠিকানায়</span>
+              <RichText
+                key="home.subscribe.headline"
+                highlightClass="text-white"
+              />
             </h2>
 
             <p
+              data-content-key="home.subscribe.lead"
               class="max-w-2xl text-xs font-light leading-relaxed text-[#8BA3AC] sm:text-sm"
             >
-              বছরে ৬টি পূর্ণাঙ্গ সংখ্যা, বিশেষ উপহার মানচিত্র এবং সংরক্ষিত
-              আর্কাইভাল আর্ট-কার্ড। আপনার ডাকঘরে বা হোম ডেলিভারিতে নিয়মিত
-              পর্যটক পেতে এখনই যুক্ত হোন।
+              {t("home.subscribe.lead")}
             </p>
           </div>
 
@@ -662,9 +704,10 @@
             <!-- Yellow Button -->
             <button
               onclick={() => openSubscribeModal("annual")}
+              data-content-key="home.subscribe.annualButton"
               class="w-full bg-[#FDD835] px-6 py-3.5 text-center text-sm font-bold tracking-wide text-[#0F2B34] shadow-md transition-all duration-150 hover:bg-[#FFDE00] active:scale-95"
             >
-              বার্ষিক সাবস্ক্রিপশন (৳ ১২০০)
+              {t("home.subscribe.annualButton")}
             </button>
 
             <!-- White Outline Button -->
@@ -672,11 +715,12 @@
               onclick={() =>
                 openSubscribeModal(
                   "single",
-                  "সংখ্যা ৩৮ — সেপ্টেম্বর-অক্টোবর ২০২৬",
+                  t("home.subscribe.singleIssueTitle"),
                 )}
+              data-content-key="home.subscribe.singleButton"
               class="w-full border border-white px-6 py-3.5 text-center text-sm font-medium tracking-wide text-white transition-all duration-150 hover:bg-white hover:text-[#0F2B34] active:scale-95"
             >
-              একক সংখ্যা কিনুন (৳ ২২০)
+              {t("home.subscribe.singleButton")}
             </button>
           </div>
         </div>

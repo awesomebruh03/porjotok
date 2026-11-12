@@ -1,57 +1,82 @@
 <script>
-  import { categories } from '../data/categories.js';
-  import { articles } from '../data/articles.js';
-  import { router, navigate } from '../stores/router.svelte.js';
+  import { categories } from "../data/categories.js";
+  import { articles } from "../data/articles.js";
+  import { router, navigate } from "../stores/router.svelte.js";
+  import { t, hrefOf } from "../stores/content.svelte.js";
 
   let { params = {} } = $props();
 
-  let activeCategorySlug = $derived(params.category || router.current.params?.category || null);
-  let activeCategory = $derived(activeCategorySlug
-    ? categories.find(c => c.slug === activeCategorySlug || c.id === activeCategorySlug)
-    : null);
+  let activeCategorySlug = $derived(
+    params.category || router.current.params?.category || null,
+  );
+  let activeCategory = $derived(
+    activeCategorySlug
+      ? categories.find(
+          (c) => c.slug === activeCategorySlug || c.id === activeCategorySlug,
+        )
+      : null,
+  );
 
-  let categoryArticles = $derived(activeCategory
-    ? articles.filter(a => a.category === activeCategory.id)
-    : []);
+  let categoryArticles = $derived(
+    activeCategory
+      ? articles.filter((a) => a.category === activeCategory.id)
+      : [],
+  );
 
-  function selectCategory(slug) {
+  function selectCategory(slug, fallbackKey = "categories.filter.all") {
     if (slug) {
       navigate(`/categories/${slug}`);
     } else {
-      navigate('/categories');
+      navigate(hrefOf(fallbackKey));
     }
   }
 </script>
 
-<div class="w-full bg-[#F4F1EA] min-h-screen text-[#1E2328]">
-
+<div class="min-h-screen w-full bg-[#F4F1EA] text-[#1E2328]">
   <!-- Header Banner -->
-  <section class="bg-[#0F2B34] text-white py-14 sm:py-20 border-b border-[#1B4856]">
-    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+  <section
+    class="border-b border-[#1B4856] bg-[#0F2B34] py-14 text-white sm:py-20"
+  >
+    <div class="mx-auto max-w-[1380px] px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl space-y-3">
-        <div class="inline-flex items-center space-x-2 text-xs font-semibold text-[#FDD835]">
+        <div
+          class="inline-flex items-center space-x-2 text-xs font-semibold text-[#FDD835]"
+        >
           <span>■</span>
-          <span>বিষয়ভিত্তিক সূচিপত্র</span>
+          <span data-content-key="categories.banner.eyebrow"
+            >{t("categories.banner.eyebrow")}</span
+          >
         </div>
 
         {#if activeCategory}
-          <h1 class="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-white">
-            {activeCategory.name} বিভাগ
+          <h1
+            data-content-key="categories.detail.title"
+            class="font-serif text-3xl font-bold tracking-tight text-white sm:text-5xl"
+          >
+            {t("categories.detail.title", { name: activeCategory.name })}
           </h1>
-          <p class="text-xs text-[#FDD835] font-mono tracking-wider">
+          <p class="font-mono text-xs tracking-wider text-[#FDD835]">
             {activeCategory.englishName}
           </p>
-          <div class="h-1 w-20 bg-[#FDD835] my-3"></div>
-          <p class="text-sm sm:text-base text-[#8BA3AC] font-light leading-relaxed">
+          <div class="my-3 h-1 w-20 bg-[#FDD835]"></div>
+          <p
+            class="text-sm font-light leading-relaxed text-[#8BA3AC] sm:text-base"
+          >
             {activeCategory.description}
           </p>
         {:else}
-          <h1 class="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-white">
-            বিষয়ভিত্তিক অনুসন্ধান
+          <h1
+            data-content-key="categories.overview.title"
+            class="font-serif text-3xl font-bold tracking-tight text-white sm:text-5xl"
+          >
+            {t("categories.overview.title")}
           </h1>
-          <div class="h-1 w-20 bg-[#FDD835] my-3"></div>
-          <p class="text-sm sm:text-base text-[#8BA3AC] font-light leading-relaxed">
-            ভ্রমণ, প্রকৃতি, সংস্কৃতি, ঐতিহ্য, ইতিহাস ও লোকজীবনের বিশেষায়িত শাখাসমূহ। নিজের পছন্দের ক্ষেত্রে প্রবেশ করুন।
+          <div class="my-3 h-1 w-20 bg-[#FDD835]"></div>
+          <p
+            data-content-key="categories.overview.description"
+            class="text-sm font-light leading-relaxed text-[#8BA3AC] sm:text-base"
+          >
+            {t("categories.overview.description")}
           </p>
         {/if}
       </div>
@@ -59,18 +84,28 @@
   </section>
 
   <!-- Category Filter Pills Bar -->
-  <section class="border-b border-[#D8D2C4] bg-[#EDE9DE] sticky top-[74px] z-30 shadow-xs">
-    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center space-x-2 overflow-x-auto scrollbar-none text-xs sm:text-sm font-medium">
+  <section
+    class="shadow-xs sticky top-[74px] z-30 border-b border-[#D8D2C4] bg-[#EDE9DE]"
+  >
+    <div
+      class="scrollbar-none mx-auto flex max-w-[1380px] items-center space-x-2 overflow-x-auto px-4 py-3.5 text-xs font-medium sm:px-6 sm:text-sm lg:px-8"
+    >
       <button
-        onclick={() => selectCategory(null)}
-        class="px-4 py-1.5 whitespace-nowrap transition-colors {!activeCategory ? 'bg-[#0F2B34] text-white' : 'bg-white/70 hover:bg-white text-[#374151]'}"
+        onclick={() => selectCategory(null, "categories.filter.all")}
+        data-content-key="categories.filter.all"
+        class="whitespace-nowrap px-4 py-1.5 transition-colors {!activeCategory
+          ? 'bg-[#0F2B34] text-white'
+          : 'bg-white/70 text-[#374151] hover:bg-white'}"
       >
-        সকল বিভাগ
+        {t("categories.filter.all")}
       </button>
       {#each categories as cat}
         <button
           onclick={() => selectCategory(cat.slug)}
-          class="px-4 py-1.5 whitespace-nowrap transition-colors {activeCategory?.id === cat.id ? 'bg-[#0F2B34] text-white' : 'bg-white/70 hover:bg-white text-[#374151]'}"
+          class="whitespace-nowrap px-4 py-1.5 transition-colors {activeCategory?.id ===
+          cat.id
+            ? 'bg-[#0F2B34] text-white'
+            : 'bg-white/70 text-[#374151] hover:bg-white'}"
         >
           {cat.name}
         </button>
@@ -79,50 +114,75 @@
   </section>
 
   <!-- Main Content -->
-  <section class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 py-16">
-
+  <section class="mx-auto max-w-[1380px] px-4 py-16 sm:px-6 lg:px-8">
     {#if activeCategory}
       <!-- Specific Category View: Articles in this category -->
       <div class="space-y-10">
-        <div class="flex items-center justify-between pb-4 border-b border-[#D8D2C4]">
-          <h2 class="font-serif text-2xl font-bold text-[#0F2B34]">
-            {activeCategory.name} বিষয়ক প্রতিবেদন ({categoryArticles.length}টি)
+        <div
+          class="flex items-center justify-between border-b border-[#D8D2C4] pb-4"
+        >
+          <h2
+            data-content-key="categories.detail.heading"
+            class="font-serif text-2xl font-bold text-[#0F2B34]"
+          >
+            {t("categories.detail.heading", {
+              name: activeCategory.name,
+              count: categoryArticles.length,
+            })}
           </h2>
           <button
-            onclick={() => selectCategory(null)}
-            class="text-xs text-[#A31D1D] hover:underline font-semibold"
+            onclick={() => selectCategory(null, "categories.detail.back")}
+            data-content-key="categories.detail.back"
+            class="text-xs font-semibold text-[#A31D1D] hover:underline"
           >
-            ← সকল বিভাগে ফিরে যান
+            {t("categories.detail.back")}
           </button>
         </div>
 
         {#if categoryArticles.length === 0}
-          <div class="bg-white border border-[#D8D2C4] p-10 text-center text-gray-500">
-            এই বিভাগে বর্তমানে কোনো নতুন অনলাইন প্রতিবেদন সংরক্ষিত নেই। পরবর্তী মুদ্রিত সংখ্যায় প্রকাশিত হবে।
+          <div
+            data-content-key="categories.detail.empty"
+            class="border border-[#D8D2C4] bg-white p-10 text-center text-gray-500"
+          >
+            {t("categories.detail.empty")}
           </div>
         {:else}
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {#each categoryArticles as article}
               <div
-                class="bg-white border border-[#D8D2C4] flex flex-col group cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300"
+                class="group flex cursor-pointer flex-col border border-[#D8D2C4] bg-white shadow-sm transition-all duration-300 hover:shadow-xl"
                 onclick={() => navigate(`/article/${article.id}`)}
               >
-                <div class="p-3 bg-white">
+                <div class="bg-white p-3">
                   <div class="yellow-framed-image">
                     <div class="aspect-[16/10] overflow-hidden bg-black">
-                      <img src={article.coverImage} alt={article.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <img
+                        src={article.coverImage}
+                        alt={article.title}
+                        class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
                     </div>
                   </div>
                 </div>
-                <div class="p-5 flex-1 flex flex-col justify-between">
+                <div class="flex flex-1 flex-col justify-between p-5">
                   <div>
-                    <span class="text-[11px] text-[#A31D1D] font-semibold">{article.categoryBadge}</span>
-                    <h3 class="font-serif text-lg font-bold text-[#0F2B34] group-hover:text-[#A31D1D] transition-colors leading-snug mt-1 mb-2">
+                    <span class="text-[11px] font-semibold text-[#A31D1D]"
+                      >{article.categoryBadge}</span
+                    >
+                    <h3
+                      class="mb-2 mt-1 font-serif text-lg font-bold leading-snug text-[#0F2B34] transition-colors group-hover:text-[#A31D1D]"
+                    >
                       {article.title}
                     </h3>
-                    <p class="text-xs text-gray-600 line-clamp-3 leading-relaxed">{article.excerpt}</p>
+                    <p
+                      class="line-clamp-3 text-xs leading-relaxed text-gray-600"
+                    >
+                      {article.excerpt}
+                    </p>
                   </div>
-                  <div class="pt-3 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500 mt-4">
+                  <div
+                    class="mt-4 flex items-center justify-between border-t border-gray-100 pt-3 text-xs text-gray-500"
+                  >
                     <span>{article.author}</span>
                     <span>{article.readingTime}</span>
                   </div>
@@ -132,22 +192,27 @@
           </div>
         {/if}
       </div>
-
     {:else}
       <!-- All Categories Overview Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {#each categories as cat}
-          {@const catArticles = articles.filter(a => a.category === cat.id)}
+          {@const catArticles = articles.filter((a) => a.category === cat.id)}
           <div
-            class="bg-white border border-[#D8D2C4] shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col group cursor-pointer"
+            class="group flex cursor-pointer flex-col border border-[#D8D2C4] bg-white shadow-sm transition-all duration-300 hover:shadow-2xl"
             onclick={() => selectCategory(cat.slug)}
           >
             <!-- Yellow framed photo -->
-            <div class="p-4 bg-[#EDE8DC]">
+            <div class="bg-[#EDE8DC] p-4">
               <div class="yellow-framed-image">
-                <div class="aspect-[16/10] overflow-hidden bg-black relative">
-                  <img src={cat.heroImage} alt={cat.name} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <div class="absolute top-2 left-2 bg-[#0F2B34]/90 text-[#FDD835] text-xs font-bold px-2 py-0.5">
+                <div class="relative aspect-[16/10] overflow-hidden bg-black">
+                  <img
+                    src={cat.heroImage}
+                    alt={cat.name}
+                    class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div
+                    class="absolute left-2 top-2 bg-[#0F2B34]/90 px-2 py-0.5 text-xs font-bold text-[#FDD835]"
+                  >
                     {cat.name}
                   </div>
                 </div>
@@ -155,22 +220,30 @@
             </div>
 
             <!-- Content -->
-            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div class="flex flex-1 flex-col justify-between space-y-4 p-6">
               <div>
-                <div class="text-[11px] text-[#A31D1D] font-mono tracking-wider uppercase mb-1">
+                <div
+                  class="mb-1 font-mono text-[11px] uppercase tracking-wider text-[#A31D1D]"
+                >
                   {cat.englishName}
                 </div>
-                <h3 class="font-serif text-2xl font-bold text-[#0F2B34] group-hover:text-[#A31D1D] transition-colors mb-2">
+                <h3
+                  class="mb-2 font-serif text-2xl font-bold text-[#0F2B34] transition-colors group-hover:text-[#A31D1D]"
+                >
                   {cat.name}
                 </h3>
-                <p class="text-xs sm:text-sm text-[#4B5563] font-light leading-relaxed mb-4">
+                <p
+                  class="mb-4 text-xs font-light leading-relaxed text-[#4B5563] sm:text-sm"
+                >
                   {cat.description}
                 </p>
 
                 <!-- Tags -->
-                <div class="flex flex-wrap gap-1.5 mb-2">
+                <div class="mb-2 flex flex-wrap gap-1.5">
                   {#each cat.tags as tag}
-                    <span class="bg-[#F0ECE1] text-[#374151] text-[10px] px-2 py-0.5">
+                    <span
+                      class="bg-[#F0ECE1] px-2 py-0.5 text-[10px] text-[#374151]"
+                    >
                       #{tag}
                     </span>
                   {/each}
@@ -178,20 +251,29 @@
               </div>
 
               <!-- Footer with Action -->
-              <div class="pt-4 border-t border-[#F0ECE1] flex items-center justify-between text-xs">
-                <span class="text-[#7B8794] font-medium">{catArticles.length}টি অনলাইন নিবন্ধ</span>
-                <span class="text-[#0F2B34] font-bold group-hover:text-[#A31D1D] transition-colors flex items-center space-x-1">
-                  <span>বিভাগ দেখুন</span>
+              <div
+                class="flex items-center justify-between border-t border-[#F0ECE1] pt-4 text-xs"
+              >
+                <span
+                  data-content-key="categories.card.count"
+                  class="font-medium text-[#7B8794]"
+                  >{t("categories.card.count", {
+                    count: catArticles.length,
+                  })}</span
+                >
+                <span
+                  class="flex items-center space-x-1 font-bold text-[#0F2B34] transition-colors group-hover:text-[#A31D1D]"
+                >
+                  <span data-content-key="categories.card.view"
+                    >{t("categories.card.view")}</span
+                  >
                   <span>→</span>
                 </span>
               </div>
             </div>
-
           </div>
         {/each}
       </div>
     {/if}
-
   </section>
-
 </div>

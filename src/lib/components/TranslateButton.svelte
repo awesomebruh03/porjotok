@@ -1,45 +1,56 @@
 <script>
-  import { onDestroy } from 'svelte';
-  import { locale, toggleLocale, cancelTranslation } from '../translate/locale.svelte.js';
-  import { translator, isSupported } from '../translate/client.svelte.js';
-  import { engine } from '../translate/engine.svelte.js';
-  import { warm } from '../translate/prewarm.svelte.js';
+  import { onDestroy } from "svelte";
+  import {
+    locale,
+    toggleLocale,
+    cancelTranslation,
+  } from "../translate/locale.svelte.js";
+  import { translator, isSupported } from "../translate/client.svelte.js";
+  import { engine } from "../translate/engine.svelte.js";
+  import { warm } from "../translate/prewarm.svelte.js";
 
   const supported = isSupported();
 
-  let notice = $state('');
+  let notice = $state("");
   let noticeTimer = null;
 
-  const isEnglish = $derived(locale.value === 'en');
+  const isEnglish = $derived(locale.value === "en");
   const busy = $derived(locale.busy);
   const downloading = $derived(
-    busy && (translator.status === 'checking' || translator.status === 'downloading')
+    busy &&
+      (translator.status === "checking" || translator.status === "downloading"),
   );
   const translating = $derived(busy && !downloading);
   const hasCounts = $derived(engine.total > 0);
 
   const percent = $derived(
-    translating && hasCounts ? Math.min(100, Math.round((engine.done / engine.total) * 100)) : 0
+    translating && hasCounts
+      ? Math.min(100, Math.round((engine.done / engine.total) * 100))
+      : 0,
   );
 
-  const label = $derived(isEnglish && !locale.needsActivation ? 'বাংলা' : 'English');
+  const label = $derived(
+    // content-ignore: language-switch label, intentionally outside the content layer
+    isEnglish && !locale.needsActivation ? "বাংলা" : "English",
+  );
   const pulsing = $derived(supported && !isEnglish && locale.pendingEnglish);
 
   const buttonTitle = $derived(
     !supported
-      ? 'Automatic translation needs Chrome or Edge on desktop — click for details'
+      ? "Automatic translation needs Chrome or Edge on desktop — click for details"
       : isEnglish && !locale.needsActivation
-        ? 'বাংলায় দেখুন'
+        ? // content-ignore: language-switch tooltip, intentionally outside the content layer
+          "বাংলায় দেখুন"
         : locale.needsActivation
-          ? 'Some content is still in Bangla — click to finish translating'
-          : 'Translate to English'
+          ? "Some content is still in Bangla — click to finish translating"
+          : "Translate to English",
   );
 
   function showNotice(message) {
     notice = message;
     if (noticeTimer) clearTimeout(noticeTimer);
     noticeTimer = setTimeout(() => {
-      notice = '';
+      notice = "";
       noticeTimer = null;
     }, 10000);
   }
@@ -47,14 +58,14 @@
   function dismissNotice() {
     if (noticeTimer) clearTimeout(noticeTimer);
     noticeTimer = null;
-    notice = '';
+    notice = "";
   }
 
   function handleClick() {
     if (locale.busy) return;
     if (!supported) {
       showNotice(
-        'Automatic translation needs Chrome or Edge on desktop. In Brave, use the translate icon in the address bar to translate this page.'
+        "Automatic translation needs Chrome or Edge on desktop. In Brave, use the translate icon in the address bar to translate this page.",
       );
       return;
     }
@@ -73,14 +84,15 @@
     disabled={locale.busy}
     aria-pressed={isEnglish}
     aria-label={!supported
-      ? 'Automatic translation is not available in this browser'
+      ? "Automatic translation is not available in this browser"
       : isEnglish
-        ? 'Show this site in Bangla'
-        : 'Translate this site to English'}
+        ? "Show this site in Bangla"
+        : "Translate this site to English"}
     title={buttonTitle}
     class="group inline-flex items-center justify-center gap-2 border px-2.5 py-1.5 text-sm font-medium transition-all duration-150 active:scale-95 disabled:cursor-progress sm:px-3 {isEnglish
       ? 'border-[#0F2B34] bg-[#0F2B34] text-[#FDD835]'
-      : 'border-[#1E2328] bg-transparent text-[#1E2328] hover:bg-[#1E2328] hover:text-[#F4F1EA]'} {pulsing || (supported && locale.needsActivation)
+      : 'border-[#1E2328] bg-transparent text-[#1E2328] hover:bg-[#1E2328] hover:text-[#F4F1EA]'} {pulsing ||
+    (supported && locale.needsActivation)
       ? 'animate-pulse'
       : ''}"
   >
@@ -91,7 +103,7 @@
       ></span>
       <span class="tabular-nums">
         {#if downloading}
-          {translator.download > 0 ? `${translator.download}%` : '…'}
+          {translator.download > 0 ? `${translator.download}%` : "…"}
         {:else if hasCounts}
           {percent}%
         {:else}
@@ -150,12 +162,12 @@
           {/if}
         </p>
         <p class="mt-1 text-xs leading-relaxed text-[#4B5563]">
-          {#if translator.status === 'checking'}
+          {#if translator.status === "checking"}
             Checking on-device support…
           {:else if downloading}
             Downloading the Bangla → English model
-            {translator.download > 0 ? `(${translator.download}%)` : ''}. This happens once
-            per browser.
+            {translator.download > 0 ? `(${translator.download}%)` : ""}. This
+            happens once per browser.
           {:else if hasCounts}
             {engine.done} of {engine.total} passages · {percent}%
           {:else}
@@ -215,7 +227,7 @@
   .translate-glyph {
     display: inline-block;
     background-color: currentColor;
-    -webkit-mask: url('/assets/translation.png') center / contain no-repeat;
-    mask: url('/assets/translation.png') center / contain no-repeat;
+    -webkit-mask: url("/assets/translation.png") center / contain no-repeat;
+    mask: url("/assets/translation.png") center / contain no-repeat;
   }
 </style>

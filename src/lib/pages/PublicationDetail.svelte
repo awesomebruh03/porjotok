@@ -3,6 +3,8 @@
   import { articles } from "../data/articles.js";
   import { router, navigate } from "../stores/router.svelte.js";
   import { openSubscriptionModal } from "../stores/ui.svelte.js";
+  import { t, link } from "../stores/content.svelte.js";
+  import RichText from "../components/RichText.svelte";
 
   let { params = {} } = $props();
 
@@ -36,9 +38,15 @@
     <div
       class="mx-auto flex max-w-[1380px] items-center space-x-2 px-4 py-3 text-xs text-[#5A636D] sm:px-6 lg:px-8"
     >
-      <a href="#/" class="hover:text-black">হোম</a>
+      <a {...link("publicationDetail.breadcrumb.home")} class="hover:text-black"
+        >{t("publicationDetail.breadcrumb.home")}</a
+      >
       <span>/</span>
-      <a href="#/publications" class="hover:text-black">সংখ্যা সংগ্রহ</a>
+      <a
+        {...link("publicationDetail.breadcrumb.publications")}
+        class="hover:text-black"
+        >{t("publicationDetail.breadcrumb.publications")}</a
+      >
       <span>/</span>
       <span class="font-medium text-[#A31D1D]">{issue.title}</span>
     </div>
@@ -87,7 +95,12 @@
             class="inline-flex items-center space-x-2 text-xs font-semibold text-[#FDD835]"
           >
             <span>■</span>
-            <span>{issue.period} • সংখ্যা {issue.issueNumber}</span>
+            <span data-content-key="publicationDetail.hero.periodIssue"
+              >{t("publicationDetail.hero.periodIssue", {
+                period: issue.period,
+                number: issue.issueNumber,
+              })}</span
+            >
           </div>
 
           <h1
@@ -108,8 +121,12 @@
 
           <!-- Specifications Tags -->
           <div class="flex flex-wrap gap-2 pt-2 text-xs text-[#ADC5CE]">
-            <span class="border border-[#1B4856] bg-[#143844] px-3 py-1"
-              >{issue.pageCount} পৃষ্ঠা পূর্ণাঙ্গ সংখ্যা</span
+            <span
+              data-content-key="publicationDetail.hero.pageCount"
+              class="border border-[#1B4856] bg-[#143844] px-3 py-1"
+              >{t("publicationDetail.hero.pageCount", {
+                pages: issue.pageCount,
+              })}</span
             >
             <span class="border border-[#1B4856] bg-[#143844] px-3 py-1"
               >{issue.specifications.paper}</span
@@ -125,15 +142,22 @@
               onclick={() => openOrder("single")}
               class="flex items-center space-x-2 bg-[#FDD835] px-6 py-3 text-sm font-bold tracking-wide text-[#0F2B34] shadow-md transition-all hover:bg-[#FFDE00] active:scale-95"
             >
-              <span>মুদ্রিত কপি অর্ডার করুন (৳ {issue.price})</span>
+              <span data-content-key="publicationDetail.hero.orderPrint"
+                >{t("publicationDetail.hero.orderPrint", {
+                  price: issue.price,
+                })}</span
+              >
               <span>→</span>
             </button>
 
             <button
               onclick={() => openOrder("digital")}
+              data-content-key="publicationDetail.hero.orderDigital"
               class="border border-white px-5 py-3 text-sm font-medium text-white transition-all hover:bg-white hover:text-[#0F2B34] active:scale-95"
             >
-              ডিজিটাল পিডিএফ (৳ {issue.digitalPrice})
+              {t("publicationDetail.hero.orderDigital", {
+                price: issue.digitalPrice,
+              })}
             </button>
           </div>
         </div>
@@ -151,18 +175,25 @@
         >
           <div>
             <span
+              data-content-key="publicationDetail.toc.eyebrow"
               class="mb-1 block text-xs font-bold uppercase tracking-wider text-[#A31D1D]"
             >
-              সম্পূর্ণ বিষয়বস্তু
+              {t("publicationDetail.toc.eyebrow")}
             </span>
             <h2
+              data-content-key="publicationDetail.toc.title"
               class="font-serif text-2xl font-bold text-[#0F2B34] sm:text-3xl"
             >
-              সূচিপত্র একনজরে
+              {t("publicationDetail.toc.title")}
             </h2>
           </div>
-          <span class="text-xs text-[#6B7280]">
-            মোট {issue.tableOfContents.length} টি নিবন্ধ ও নথি
+          <span
+            data-content-key="publicationDetail.toc.total"
+            class="text-xs text-[#6B7280]"
+          >
+            {t("publicationDetail.toc.total", {
+              count: issue.tableOfContents.length,
+            })}
           </span>
         </div>
 
@@ -179,9 +210,10 @@
                   </span>
                   {#if matched}
                     <span
+                      data-content-key="publicationDetail.toc.readableOnline"
                       class="py-0.2 bg-[#EDE8DC] px-1.5 text-[10px] font-medium text-[#0F2B34]"
                     >
-                      অনলাইন পাঠযোগ্য
+                      {t("publicationDetail.toc.readableOnline")}
                     </span>
                   {/if}
                 </div>
@@ -201,19 +233,25 @@
                   </h3>
                 {/if}
 
-                <p class="text-xs text-[#6B7280]">
-                  লেখক/সমীক্ষক: <span class="font-medium text-[#1E2328]"
-                    >{item.author}</span
-                  >
+                <p
+                  data-content-key="publicationDetail.toc.author"
+                  class="text-xs text-[#6B7280]"
+                >
+                  <RichText
+                    key="publicationDetail.toc.author"
+                    vars={{ author: item.author }}
+                    highlightClass="font-medium text-[#1E2328]"
+                  />
                 </p>
               </div>
 
               <!-- Page Number Badge -->
               <div class="shrink-0 text-right">
                 <span
+                  data-content-key="publicationDetail.toc.page"
                   class="bg-[#EDE8DC] px-2.5 py-1 font-mono text-xs font-semibold text-[#0F2B34] sm:text-sm"
                 >
-                  পৃষ্ঠা {item.page}
+                  {t("publicationDetail.toc.page", { page: item.page })}
                 </span>
               </div>
             </div>
@@ -226,9 +264,10 @@
         <!-- Highlights Box -->
         <div class="border border-[#D8D2C4] bg-white p-6 shadow-sm">
           <h3
+            data-content-key="publicationDetail.highlights.title"
             class="mb-4 border-b border-[#E6E1D5] pb-2 font-serif text-lg font-bold text-[#0F2B34]"
           >
-            সংখ্যার বিশেষ আকর্ষণ
+            {t("publicationDetail.highlights.title")}
           </h3>
           <ul class="space-y-3 text-xs text-[#374151] sm:text-sm">
             {#each issue.highlights as hl}
@@ -245,29 +284,55 @@
         <!-- Print Specs Box -->
         <div class="border border-[#D8D2C4] bg-[#EDE9DE] p-6">
           <h3
+            data-content-key="publicationDetail.specs.title"
             class="mb-4 border-b border-[#D8D2C4] pb-2 font-serif text-lg font-bold text-[#0F2B34]"
           >
-            বিবরণ
+            {t("publicationDetail.specs.title")}
           </h3>
           <dl class="space-y-2 text-xs text-[#374151]">
             <div class="flex justify-between border-b border-[#E0DBCF] py-1">
-              <dt class="text-[#6B7280]">সাইজ:</dt>
+              <dt
+                data-content-key="publicationDetail.specs.size"
+                class="text-[#6B7280]"
+              >
+                {t("publicationDetail.specs.size")}
+              </dt>
               <dd class="font-medium">{issue.specifications.format}</dd>
             </div>
             <div class="flex justify-between border-b border-[#E0DBCF] py-1">
-              <dt class="text-[#6B7280]">ইনার কাগজ:</dt>
+              <dt
+                data-content-key="publicationDetail.specs.paper"
+                class="text-[#6B7280]"
+              >
+                {t("publicationDetail.specs.paper")}
+              </dt>
               <dd class="font-medium">{issue.specifications.paper}</dd>
             </div>
             <div class="flex justify-between border-b border-[#E0DBCF] py-1">
-              <dt class="text-[#6B7280]">কভার:</dt>
+              <dt
+                data-content-key="publicationDetail.specs.cover"
+                class="text-[#6B7280]"
+              >
+                {t("publicationDetail.specs.cover")}
+              </dt>
               <dd class="font-medium">{issue.specifications.cover}</dd>
             </div>
             <div class="flex justify-between border-b border-[#E0DBCF] py-1">
-              <dt class="text-[#6B7280]">বাইন্ডিং:</dt>
+              <dt
+                data-content-key="publicationDetail.specs.binding"
+                class="text-[#6B7280]"
+              >
+                {t("publicationDetail.specs.binding")}
+              </dt>
               <dd class="font-medium">{issue.specifications.binding}</dd>
             </div>
             <div class="flex justify-between py-1">
-              <dt class="text-[#6B7280]">আইএসএসএন:</dt>
+              <dt
+                data-content-key="publicationDetail.specs.issn"
+                class="text-[#6B7280]"
+              >
+                {t("publicationDetail.specs.issn")}
+              </dt>
               <dd class="font-mono">{issue.specifications.issn}</dd>
             </div>
           </dl>
@@ -275,18 +340,24 @@
 
         <!-- Annual Subscription Promo -->
         <div class="border-l-4 border-[#FDD835] bg-[#0F2B34] p-6 text-white">
-          <h4 class="mb-2 font-serif text-base font-bold text-[#FDD835]">
-            একক সংখ্যা নয়, চান নিয়মিত কপি?
+          <h4
+            data-content-key="publicationDetail.promo.title"
+            class="mb-2 font-serif text-base font-bold text-[#FDD835]"
+          >
+            {t("publicationDetail.promo.title")}
           </h4>
-          <p class="mb-4 text-xs leading-relaxed text-[#8BA3AC]">
-            বার্ষিক গ্রাহক হলে পাবেন বিশেষ ছাড় ও বিনামূল্যে প্রতিটি সংখ্যার হোম
-            ডেলিভারি।
+          <p
+            data-content-key="publicationDetail.promo.description"
+            class="mb-4 text-xs leading-relaxed text-[#8BA3AC]"
+          >
+            {t("publicationDetail.promo.description")}
           </p>
           <button
             onclick={() => openOrder("annual")}
+            data-content-key="publicationDetail.promo.button"
             class="w-full bg-[#A31D1D] py-2 text-xs font-semibold tracking-wide text-white transition-colors hover:bg-[#851414]"
           >
-            বার্ষিক গ্রাহক হোন (৳ ১২০০)
+            {t("publicationDetail.promo.button")}
           </button>
         </div>
       </div>
@@ -296,8 +367,11 @@
   <!-- Related Other Issues -->
   <section class="mx-auto max-w-[1380px] px-4 pb-20 sm:px-6 lg:px-8">
     <div class="border-t border-[#D8D2C4] pt-12">
-      <h3 class="mb-6 font-serif text-2xl font-bold text-[#0F2B34]">
-        প্রকাশিত আরও সংখ্যা
+      <h3
+        data-content-key="publicationDetail.related.title"
+        class="mb-6 font-serif text-2xl font-bold text-[#0F2B34]"
+      >
+        {t("publicationDetail.related.title")}
       </h3>
 
       <div class="grid grid-cols-1 gap-6 sm:grid-cols-3">
@@ -322,7 +396,12 @@
               >
                 {other.title}
               </h4>
-              <p class="mt-1 text-xs text-gray-500">৳ {other.price}</p>
+              <p
+                data-content-key="publicationDetail.related.price"
+                class="mt-1 text-xs text-gray-500"
+              >
+                {t("publicationDetail.related.price", { price: other.price })}
+              </p>
             </div>
           </div>
         {/each}

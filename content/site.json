@@ -1,4 +1,514 @@
 {
+  "about.board.0.initial": {
+    "bn": "তা",
+    "en": ""
+  },
+  "about.board.0.name": {
+    "bn": "আহমদ ফারুক",
+    "en": ""
+  },
+  "about.board.0.role": {
+    "bn": "প্রধান সম্পাদক ও গবেষক",
+    "en": ""
+  },
+  "about.board.1.initial": {
+    "bn": "শা",
+    "en": ""
+  },
+  "about.board.1.name": {
+    "bn": "রহিম রানা",
+    "en": ""
+  },
+  "about.board.1.role": {
+    "bn": "নির্বাহী সম্পাদক",
+    "en": ""
+  },
+  "about.board.2.initial": {
+    "bn": "সা",
+    "en": ""
+  },
+  "about.board.2.name": {
+    "bn": "ড. রফিকুল ইসলাম",
+    "en": ""
+  },
+  "about.board.2.role": {
+    "bn": "ভাষা ও অনুবাদ সম্পাদক",
+    "en": ""
+  },
+  "about.board.3.initial": {
+    "bn": "কা",
+    "en": ""
+  },
+  "about.board.3.name": {
+    "bn": "কাইয়ুম হালদার",
+    "en": ""
+  },
+  "about.board.3.role": {
+    "bn": "ব্যবস্থাপনা সম্পাদক",
+    "en": ""
+  },
+  "about.board.eyebrow": {
+    "bn": "সম্পাদকীয় পর্ষদ",
+    "en": ""
+  },
+  "about.board.title": {
+    "bn": "আমাদের পেছনের মানুষজন",
+    "en": ""
+  },
+  "about.hero.eyebrow": {
+    "bn": "আমাদের দর্শন ও অভিযাত্রা",
+    "en": ""
+  },
+  "about.hero.lead": {
+    "bn": "পর্যটক কেবল একটি সাময়িকী নয়; এটি বাংলাদেশ ও এর সংলগ্ন অঞ্চলের ভূ-প্রকৃতি, প্রাচীন সংস্কৃতি ও প্রান্তিক মানুষের জীবনধারাকে গভীর শ্রদ্ধা ও নিবিড় ভালোবাসায় নথিভুক্ত করার এক নিরবচ্ছিন্ন বৌদ্ধিক আন্দোলন।",
+    "en": ""
+  },
+  "about.hero.title": {
+    "bn": "দেশকে দেখি নতুন জানালায়",
+    "en": ""
+  },
+  "about.principles.0.description": {
+    "bn": "কোনো ধার করা গল্প নয়; লেখকের নিজের পায়ে হাঁটা মেঠোপথ এবং সরেজমিনে সাক্ষাৎকারের ভিত্তিতে প্রতিটি নিবন্ধ রচিত।",
+    "en": ""
+  },
+  "about.principles.0.number": {
+    "bn": "০১.",
+    "en": ""
+  },
+  "about.principles.0.title": {
+    "bn": "মাঠপর্যায়ের সমীক্ষা",
+    "en": ""
+  },
+  "about.principles.1.description": {
+    "bn": "সুন্দরবনের ম্যানগ্রোভ থেকে শুরু করে হাওর ও চিরসবুজ বনাঞ্চলের সংকটাপন্ন জীববৈচিত্র্য সংরক্ষণে সংবেদনশীল প্রতিবেদন।",
+    "en": ""
+  },
+  "about.principles.1.number": {
+    "bn": "০২.",
+    "en": ""
+  },
+  "about.principles.1.title": {
+    "bn": "বাস্তুতন্ত্রের সুরক্ষা",
+    "en": ""
+  },
+  "about.principles.2.description": {
+    "bn": "মৌয়াল, চরবাসী, চা-শ্রমিক এবং বিভিন্ন ক্ষুদ্র নৃগোষ্ঠীর লোকগাথা, উৎসব ও বাচনিক ঐতিহ্যকে যথাযথ মর্যাদায় তুলে ধরা।",
+    "en": ""
+  },
+  "about.principles.2.number": {
+    "bn": "০৩.",
+    "en": ""
+  },
+  "about.principles.2.title": {
+    "bn": "লোকসংস্কৃতির মর্যাদা",
+    "en": ""
+  },
+  "about.principles.3.description": {
+    "bn": "স্থানীয় পরিবেশ ও সংস্কৃতির কোনো ক্ষতি না করে টেকসই পর্যটনের পথপ্রদর্শন এবং ভ্রমণকারীদের সচেতন করা।",
+    "en": ""
+  },
+  "about.principles.3.number": {
+    "bn": "০৪.",
+    "en": ""
+  },
+  "about.principles.3.title": {
+    "bn": "দায়িত্বশীল ভ্রমণ",
+    "en": ""
+  },
+  "about.principles.eyebrow": {
+    "bn": "আমাদের চারটি মূল স্তম্ভ",
+    "en": ""
+  },
+  "about.principles.title": {
+    "bn": "সম্পাদনা নীতি ও দায়বদ্ধতা",
+    "en": ""
+  },
+  "about.story.caption": {
+    "bn": "বরেন্দ্র অঞ্চলে প্রথম ক্ষেত্রসমীক্ষার সময়কার ফ্রেম | চাঁপাইনবাবগঞ্জ",
+    "en": ""
+  },
+  "about.story.eyebrow": {
+    "bn": "আমাদের শুরু ও উদ্দেশ্য",
+    "en": ""
+  },
+  "about.story.imageAlt": {
+    "bn": "পর্যটক ক্ষেত্রসমীক্ষা",
+    "en": ""
+  },
+  "about.story.origin": {
+    "bn": "সেই অভাববোধ থেকেই ‘পর্যটক’ পত্রিকার জন্ম। আমরা বিশ্বাস করি, ভ্রমণ হলো নিজেকে জানার এবং নিজ মাটির প্রতি দায়বদ্ধ হওয়ার অন্যতম শ্রেষ্ঠ মাধ্যম। আমাদের প্রতিটি সংখ্যায় থাকে মাসের পর মাস ধরে পরিচালিত মাঠপর্যায়ের গবেষণা, আঞ্চলিক প্রবীণদের স্মৃতি ও উচ্চমানের প্রামাণ্য আলোকচিত্র।",
+    "en": ""
+  },
+  "about.story.problem": {
+    "bn": "হোটেল বুকিং, সেলফি তোলার স্পট আর কৃত্রিম বিজ্ঞাপনী আকর্ষণের ভিড়ে হারিয়ে যায় প্রকৃত বাংলাদেশ। নদীর বুকে জেগে ওঠা নতুন চরের মাঝিদের দীর্ঘশ্বাস, পাহাড়ি ট্রেইলের নিস্তব্ধতা, কিংবা বরেন্দ্রভূমির হলুদ সরিষা ক্ষেতে দেড়শত বছর ধরে একা দাঁড়িয়ে থাকা প্রাচীন বটগাছের মৌন ইতিহাস—এসব গল্প সাধারণ প্রচারমাধ্যমে স্থান পায় না।",
+    "en": ""
+  },
+  "about.story.quote": {
+    "bn": "\"আমরা দূরবর্তী পদরেখা ও প্রান্তিক মানুষের কণ্ঠস্বরকে কেবল দেখি না, শ্রদ্ধার সাথে ধারণ করি।\"",
+    "en": ""
+  },
+  "about.story.title": {
+    "bn": "বাণিজ্যিক পর্যটনের বাইরে মাটির গভীরের অনুসন্ধান",
+    "en": ""
+  },
+  "articleDetail.actions.print": {
+    "bn": "🖨️ প্রিন্ট করুন",
+    "en": ""
+  },
+  "articleDetail.actions.readLater": {
+    "bn": "☆ পরে পড়ুন",
+    "en": ""
+  },
+  "articleDetail.actions.saved": {
+    "bn": "★ সংরক্ষিত তালিকায় রয়েছে",
+    "en": ""
+  },
+  "articleDetail.actions.share": {
+    "bn": "সামাজিক মাধ্যমে শেয়ার",
+    "en": ""
+  },
+  "articleDetail.bookmark.removeTitle": {
+    "bn": "সংরক্ষণ তালিকা থেকে সরান",
+    "en": ""
+  },
+  "articleDetail.bookmark.save": {
+    "bn": "সংরক্ষণ",
+    "en": ""
+  },
+  "articleDetail.bookmark.saveTitle": {
+    "bn": "পরে পড়ার জন্য সংরক্ষণ করুন",
+    "en": ""
+  },
+  "articleDetail.bookmark.saved": {
+    "bn": "সংরক্ষিত",
+    "en": ""
+  },
+  "articleDetail.breadcrumb.articles": {
+    "bn": "প্রতিবেদন",
+    "en": "",
+    "href": "#/articles",
+    "newTab": false
+  },
+  "articleDetail.breadcrumb.home": {
+    "bn": "হোম",
+    "en": "",
+    "href": "#/",
+    "newTab": false
+  },
+  "articleDetail.byline.author": {
+    "bn": "প্রতিবেদন ও গবেষণা:",
+    "en": ""
+  },
+  "articleDetail.byline.location": {
+    "bn": "সমীক্ষা অঞ্চল:",
+    "en": ""
+  },
+  "articleDetail.byline.photographer": {
+    "bn": "আলোকচিত্র:",
+    "en": ""
+  },
+  "articleDetail.caption": {
+    "bn": "আলোকচিত্র: {photographer} | স্থান: {location} | পর্যটক সংগ্রহশালা",
+    "en": ""
+  },
+  "articleDetail.fontSize.large": {
+    "bn": "অ+",
+    "en": ""
+  },
+  "articleDetail.fontSize.largeTitle": {
+    "bn": "বড় হরফ",
+    "en": ""
+  },
+  "articleDetail.fontSize.medium": {
+    "bn": "অ",
+    "en": ""
+  },
+  "articleDetail.fontSize.mediumTitle": {
+    "bn": "স্বাভাবিক হরফ",
+    "en": ""
+  },
+  "articleDetail.fontSize.small": {
+    "bn": "অ-",
+    "en": ""
+  },
+  "articleDetail.fontSize.smallTitle": {
+    "bn": "ছোট হরফ",
+    "en": ""
+  },
+  "articleDetail.meta.defaultBadge": {
+    "bn": "মাঠপর্যায়ের সমীক্ষা",
+    "en": ""
+  },
+  "articleDetail.related.eyebrow": {
+    "bn": "আরও পড়ুন",
+    "en": ""
+  },
+  "articleDetail.related.heading": {
+    "bn": "সম্পর্কিত অন্যান্য প্রতিবেদন",
+    "en": ""
+  },
+  "articleDetail.share.label": {
+    "bn": "শেয়ার",
+    "en": ""
+  },
+  "articleDetail.share.title": {
+    "bn": "শেয়ার করুন",
+    "en": ""
+  },
+  "articleDetail.toast.copied": {
+    "bn": "লিংকটি ক্লিপবোর্ডে কপি করা হয়েছে!",
+    "en": ""
+  },
+  "articleDetail.toast.shared": {
+    "bn": "নিবন্ধের লিংক সফলভাবে শেয়ার করা হয়েছে!",
+    "en": ""
+  },
+  "articles.empty.message": {
+    "bn": "\"{query}\" এর সাথে সম্পর্কিত কোনো লেখা খুঁজে পাওয়া যায়নি। অনুগ্রহ করে অন্য কোনো কি-ওয়ার্ড দিয়ে চেষ্টা করুন।",
+    "en": ""
+  },
+  "articles.empty.reset": {
+    "bn": "সব ফিল্টার মুছুন",
+    "en": ""
+  },
+  "articles.empty.title": {
+    "bn": "কোনো প্রতিবেদন পাওয়া যায়নি",
+    "en": ""
+  },
+  "articles.featured.readTime": {
+    "bn": "{readingTime} পাঠ",
+    "en": ""
+  },
+  "articles.filter.all": {
+    "bn": "সব ({count})",
+    "en": ""
+  },
+  "articles.hero.eyebrow": {
+    "bn": "সম্পাদনা ও প্রামাণ্য নিবন্ধশালা",
+    "en": ""
+  },
+  "articles.hero.headline": {
+    "bn": "সকল প্রতিবেদন ও আখ্যান",
+    "en": ""
+  },
+  "articles.hero.intro": {
+    "bn": "বাংলার মাটি, নদী, পাহাড়, বিলুপ্তপ্রায় ঐতিহ্য ও মানুষের প্রাত্যহিক সংগ্রাম নিয়ে রচিত গভীর গবেষণাধর্মী ও সংবেদনশীল প্রতিবেদন।",
+    "en": ""
+  },
+  "articles.loadMore": {
+    "bn": "আরও প্রতিবেদন লোড করুন ({remaining}টি বাকি)",
+    "en": ""
+  },
+  "articles.search.placeholder": {
+    "bn": "প্রতিবেদন খুঁজুন...",
+    "en": ""
+  },
+  "categories.banner.eyebrow": {
+    "bn": "বিষয়ভিত্তিক সূচিপত্র",
+    "en": ""
+  },
+  "categories.card.count": {
+    "bn": "{count}টি অনলাইন নিবন্ধ",
+    "en": ""
+  },
+  "categories.card.view": {
+    "bn": "বিভাগ দেখুন",
+    "en": ""
+  },
+  "categories.detail.back": {
+    "bn": "← সকল বিভাগে ফিরে যান",
+    "en": "",
+    "href": "#/categories"
+  },
+  "categories.detail.empty": {
+    "bn": "এই বিভাগে বর্তমানে কোনো নতুন অনলাইন প্রতিবেদন সংরক্ষিত নেই। পরবর্তী মুদ্রিত সংখ্যায় প্রকাশিত হবে।",
+    "en": ""
+  },
+  "categories.detail.heading": {
+    "bn": "{name} বিষয়ক প্রতিবেদন ({count}টি)",
+    "en": ""
+  },
+  "categories.detail.title": {
+    "bn": "{name} বিভাগ",
+    "en": ""
+  },
+  "categories.filter.all": {
+    "bn": "সকল বিভাগ",
+    "en": "",
+    "href": "#/categories"
+  },
+  "categories.overview.description": {
+    "bn": "ভ্রমণ, প্রকৃতি, সংস্কৃতি, ঐতিহ্য, ইতিহাস ও লোকজীবনের বিশেষায়িত শাখাসমূহ। নিজের পছন্দের ক্ষেত্রে প্রবেশ করুন।",
+    "en": ""
+  },
+  "categories.overview.title": {
+    "bn": "বিষয়ভিত্তিক অনুসন্ধান",
+    "en": ""
+  },
+  "contact.error.email": {
+    "bn": "সঠিক ইমেইল ঠিকানা প্রদান করুন",
+    "en": ""
+  },
+  "contact.error.fullName": {
+    "bn": "আপনার পূর্ণ নাম লিখুন",
+    "en": ""
+  },
+  "contact.error.message": {
+    "bn": "বার্তাটি কমপক্ষে ১০ অক্ষরের হতে হবে",
+    "en": ""
+  },
+  "contact.error.subject": {
+    "bn": "বিষয় উল্লেখ করুন",
+    "en": ""
+  },
+  "contact.form.category.advertising": {
+    "bn": "বিজ্ঞাপন ও প্রাতিষ্ঠানিক অংশীদারিত্ব",
+    "en": ""
+  },
+  "contact.form.category.articlePitch": {
+    "bn": "নিবন্ধ বা ক্ষেত্রসমীক্ষার প্রস্তাবনা",
+    "en": ""
+  },
+  "contact.form.category.generalFeedback": {
+    "bn": "সাধারণ মতামত ও প্রতিক্রিয়া",
+    "en": ""
+  },
+  "contact.form.category.label": {
+    "bn": "বার্তার ধরন / বিভাগ",
+    "en": ""
+  },
+  "contact.form.category.photoSubmission": {
+    "bn": "প্রামাণ্য আলোকচিত্র সিরিজ সাবমিশন",
+    "en": ""
+  },
+  "contact.form.category.subscriptionHelp": {
+    "bn": "বার্ষিক সদস্যপদ বা ডাকযোগে ডেলিভারি সহায়তা",
+    "en": ""
+  },
+  "contact.form.email.label": {
+    "bn": "ইমেইল ঠিকানা",
+    "en": ""
+  },
+  "contact.form.email.placeholder": {
+    "bn": "name@example.com",
+    "en": ""
+  },
+  "contact.form.fullName.label": {
+    "bn": "আপনার নাম",
+    "en": ""
+  },
+  "contact.form.fullName.placeholder": {
+    "bn": "যেমন: তানভীর আহমেদ",
+    "en": ""
+  },
+  "contact.form.hint": {
+    "bn": "সবগুলো তথ্য নির্ভুলভাবে পূরণ করুন।",
+    "en": ""
+  },
+  "contact.form.message.label": {
+    "bn": "বিস্তারিত বার্তা",
+    "en": ""
+  },
+  "contact.form.message.placeholder": {
+    "bn": "আপনার প্রস্তাবনা, প্রশ্ন বা মতামত এখানে বিস্তারিত লিখুন...",
+    "en": ""
+  },
+  "contact.form.subject.label": {
+    "bn": "বিষয়",
+    "en": ""
+  },
+  "contact.form.subject.placeholder": {
+    "bn": "বার্তার মূল বিষয় লিখুন",
+    "en": ""
+  },
+  "contact.form.submit": {
+    "bn": "বার্তা জমা দিন",
+    "en": ""
+  },
+  "contact.form.submitting": {
+    "bn": "বার্তা পাঠানো হচ্ছে...",
+    "en": ""
+  },
+  "contact.form.title": {
+    "bn": "সরাসরি বার্তা পাঠান",
+    "en": ""
+  },
+  "contact.guidelines.fieldwork": {
+    "bn": "নিবন্ধ অবশ্যই সরেজমিন পরিদর্শনের ওপর ভিত্তি করে লেখা হতে হবে। কোনো অনলাইন অনুকরণ গ্রহণযোগ্য নয়।",
+    "en": ""
+  },
+  "contact.guidelines.length": {
+    "bn": "লেখা ১৫০০ থেকে ৩০০০ শব্দের মধ্যে হতে হবে। ইউনিকোড বাংলা ফন্টে পাঠাতে হবে।",
+    "en": ""
+  },
+  "contact.guidelines.photos": {
+    "bn": "আলোকচিত্র উচ্চ রেজোলিউশনের (কমপক্ষে ৩০০ ডিপিআই) এবং র’ বা আনকমপ্রেসড জেপেগ ফরম্যাটে পাঠাতে হবে।",
+    "en": ""
+  },
+  "contact.guidelines.title": {
+    "bn": "লেখা ও ছবি পাঠানোর নিয়মাবলী",
+    "en": ""
+  },
+  "contact.hero.eyebrow": {
+    "bn": "সম্পাদকীয় কার্যালয় ও চিঠিপত্র",
+    "en": ""
+  },
+  "contact.hero.lead": {
+    "bn": "আপনার কোনো ক্ষেত্রসমীক্ষার প্রস্তাবনা, আলোকচিত্র সিরিজ, গ্রাহকসেবা প্রশ্ন বা প্রতিক্রিয়া থাকলে আমাদের সম্পাদকীয় দপ্তরে সরাসরি লিখুন।",
+    "en": ""
+  },
+  "contact.hero.title": {
+    "bn": "যোগাযোগ ও বার্তা পাঠান",
+    "en": ""
+  },
+  "contact.office.address": {
+    "bn": "১০৬, কনকর্ড এম্পোরিয়াম, কাটাবন,এলিফ্যান্ট রোড, ঢাকা ১২০৫",
+    "en": ""
+  },
+  "contact.office.email": {
+    "bn": "porjotokbdt@gmail.com",
+    "en": ""
+  },
+  "contact.office.emailLabel": {
+    "bn": "সম্পাদকীয় ইমেইল:",
+    "en": ""
+  },
+  "contact.office.name": {
+    "bn": "পর্যটক কার্যালয়:",
+    "en": ""
+  },
+  "contact.office.phone": {
+    "bn": "০১৮০৪-৭৬৮০০৮",
+    "en": ""
+  },
+  "contact.office.phoneLabel": {
+    "bn": "মুঠোফোন:",
+    "en": ""
+  },
+  "contact.success.again": {
+    "bn": "আরেকটি বার্তা লিখুন",
+    "en": ""
+  },
+  "contact.success.body": {
+    "bn": "। পর্যটক পত্রিকার সম্পাদকীয় বোর্ড আপনার বার্তাটি খতিয়ে দেখবে এবং প্রয়োজনীয় ক্ষেত্রে আগামী ৩ কার্যদিবসের মধ্যে যোগাযোগ করবে।",
+    "en": ""
+  },
+  "contact.success.thanks": {
+    "bn": "ধন্যবাদ",
+    "en": ""
+  },
+  "contact.success.title": {
+    "bn": "বার্তাটি সফলভাবে পাঠানো হয়েছে!",
+    "en": ""
+  },
+  "contact.toast.invalid": {
+    "bn": "অনুগ্রহ করে ফরমের ভুলগুলো সংশোধন করুন।",
+    "en": ""
+  },
+  "contact.toast.success": {
+    "bn": "ধন্যবাদ! আপনার বার্তাটি সম্পাদকীয় দপ্তরে পৌঁছেছে।",
+    "en": ""
+  },
   "footer.brand": {
     "bn": "পর্যটক",
     "en": ""
@@ -185,6 +695,536 @@
   },
   "header.tagline": {
     "bn": "পর্যটন ভাবনা ও বিকাশের পত্রিকা",
+    "en": ""
+  },
+  "home.archive.coverBrand": {
+    "bn": "পর্যটক",
+    "en": ""
+  },
+  "home.archive.coverFrequency": {
+    "bn": "ত্রৈমাসিক পত্রিকা",
+    "en": ""
+  },
+  "home.archive.heading": {
+    "bn": "বিশেষ প্রবন্ধ",
+    "en": ""
+  },
+  "home.archive.issueMeta": {
+    "bn": "সংখ্যা {issueNumber} • পৃষ্ঠা {pageCount}",
+    "en": ""
+  },
+  "home.cover.authorLabel": {
+    "bn": "লেখা:",
+    "en": ""
+  },
+  "home.cover.badge": {
+    "bn": "প্রচ্ছদ প্রতিবেদন",
+    "en": ""
+  },
+  "home.cover.paragraph1": {
+    "bn": "সূর্যোদয়ের প্রথম প্রহরে যখন ঘন কুয়াশা বরেন্দ্রভূমির দিগন্তকে ঢেকে দেয়, তখন দূর থেকে কেবল এই শতবর্ষী ছায়াদায়ী মহীরুহের অবয়ব ভেসে ওঠে। হাজারো মানুষের পদরেখা মিলিয়ে গেছে এই বৃক্ষতলে। হলুদ সরিষার সুবাস আর মেঠোপথের বাঁকে লুকিয়ে থাকা মৌন ঐতিহ্যের মাঝে আজও কীভাবে বেঁচে থাকে কৃষকের সরল গল্প?",
+    "en": ""
+  },
+  "home.cover.paragraph2": {
+    "bn": "লোকসংস্কৃতির অবিচ্ছেদ্য উপাদান বটগাছ কেবল একটি প্রাকৃতিক বৃক্ষ নয়; এটি বাংলা জনপদের সামাজিক আড্ডা, মেলা ও দীর্ঘ যাত্রাপথের জিরো পয়েন্ট।",
+    "en": ""
+  },
+  "home.cover.photoLabel": {
+    "bn": "| ছবি:",
+    "en": ""
+  },
+  "home.cover.readFull": {
+    "bn": "সম্পূর্ণ পড়ুন",
+    "en": ""
+  },
+  "home.hero.headline": {
+    "bn": "দেশকে দেখি\n*নতুন জানালায়*",
+    "en": ""
+  },
+  "home.hero.issueBadge": {
+    "bn": "সেপ্টেম্বর-অক্টোবর ২০২৬ সংখ্যা",
+    "en": ""
+  },
+  "home.hero.lead": {
+    "bn": "বরেন্দ্র অঞ্চলের বিস্তীর্ণ হলদে দিগন্তে কুয়াশার চাদর আর একাকিত্বে সগৌরব বটছায়া প্রান্তিক জনপদের মাটির সুর ও লোকজীবনের অনুসন্ধান",
+    "en": ""
+  },
+  "home.hero.photoCredit": {
+    "bn": "ছবি: শাহরিয়ার বায়েজিদ",
+    "en": ""
+  },
+  "home.hero.photoLocation": {
+    "bn": "স্থান: নাচোল, চাঁপাইনবাবগঞ্জ",
+    "en": ""
+  },
+  "home.hero.photoTitle": {
+    "bn": "আলোকচিত্র",
+    "en": ""
+  },
+  "home.hero.readIssue": {
+    "bn": "সংখ্যাটি পড়ুন",
+    "en": "",
+    "href": "#/publication/issue-38"
+  },
+  "home.hero.scrollDown": {
+    "bn": "নিচে নামুন",
+    "en": ""
+  },
+  "home.hero.topbarLeft": {
+    "bn": "দ্বিমাসিক প্রামাণ্য ভ্রমণ ও ভৌগোলিক সাময়িকী",
+    "en": ""
+  },
+  "home.hero.topbarRight": {
+    "bn": "মুদ্রিত ও ডিজিটাল প্রকাশনা",
+    "en": ""
+  },
+  "home.hero.volume": {
+    "bn": "সংখ্যা ৩৮ | বর্ষ ১২",
+    "en": ""
+  },
+  "home.latest.eyebrow": {
+    "bn": "ধারাবাহিক",
+    "en": ""
+  },
+  "home.latest.heading": {
+    "bn": "বিশেষ প্রবন্ধ",
+    "en": ""
+  },
+  "home.latest.viewAll": {
+    "bn": "সকল আর্কাইভ প্রতিবেদন দেখুন",
+    "en": "",
+    "href": "#/articles"
+  },
+  "home.reflection.heading": {
+    "bn": "চলতি সংখ্যার প্রধান নিবন্ধসমূহ",
+    "en": ""
+  },
+  "home.reflection.tocLink": {
+    "bn": "সূচিপত্র একনজরে",
+    "href": "#/publication/issue-38",
+    "newTab": false,
+    "en": ""
+  },
+  "home.subscribe.annualButton": {
+    "bn": "বার্ষিক সাবস্ক্রিপশন (৳ ১২০০)",
+    "en": ""
+  },
+  "home.subscribe.annualPlanTitle": {
+    "bn": "বার্ষিক সাবস্ক্রিপশন (৬টি মুদ্রিত সংখ্যা)",
+    "en": ""
+  },
+  "home.subscribe.eyebrow": {
+    "bn": "ডাকযোগে বার্ষিক গ্রাহক সেবা",
+    "en": ""
+  },
+  "home.subscribe.headline": {
+    "bn": "প্রত্যেক সংখ্যার মুদ্রিত কপি পৌঁছে যাবে\n*আপনার ঠিকানায়*",
+    "en": ""
+  },
+  "home.subscribe.lead": {
+    "bn": "বছরে ৬টি পূর্ণাঙ্গ সংখ্যা, বিশেষ উপহার মানচিত্র এবং সংরক্ষিত আর্কাইভাল আর্ট-কার্ড। আপনার ডাকঘরে বা হোম ডেলিভারিতে নিয়মিত পর্যটক পেতে এখনই যুক্ত হোন।",
+    "en": ""
+  },
+  "home.subscribe.singleButton": {
+    "bn": "একক সংখ্যা কিনুন (৳ ২২০)",
+    "en": ""
+  },
+  "home.subscribe.singleIssueTitle": {
+    "bn": "সংখ্যা ৩৮ — সেপ্টেম্বর-অক্টোবর ২০২৬",
+    "en": ""
+  },
+  "meta.title": {
+    "bn": "পর্যটক — পর্যটন ভাবনা ও বিকাশের পত্রিকা",
+    "en": ""
+  },
+  "modal.subscribe.cancel": {
+    "bn": "বাতিল",
+    "en": ""
+  },
+  "modal.subscribe.close": {
+    "bn": "বন্ধ করুন",
+    "en": ""
+  },
+  "modal.subscribe.form.address.label": {
+    "bn": "ডেলিভারি ঠিকানা (ডাকঘর ও জেলাসহ)",
+    "en": ""
+  },
+  "modal.subscribe.form.address.placeholder": {
+    "bn": "বাসা/গ্রাম, থানা, ডাকঘর, জেলা...",
+    "en": ""
+  },
+  "modal.subscribe.form.email.label": {
+    "bn": "ইমেইল ঠিকানা (যেখানে পিডিএফ পাঠানো হবে)",
+    "en": ""
+  },
+  "modal.subscribe.form.email.placeholder": {
+    "bn": "reader@example.com",
+    "en": ""
+  },
+  "modal.subscribe.form.fullName.label": {
+    "bn": "আপনার পুরো নাম",
+    "en": ""
+  },
+  "modal.subscribe.form.fullName.placeholder": {
+    "bn": "যেমন: তানভীর আহমেদ",
+    "en": ""
+  },
+  "modal.subscribe.form.phone.label": {
+    "bn": "মোবাইল নম্বর",
+    "en": ""
+  },
+  "modal.subscribe.form.phone.placeholder": {
+    "bn": "০১৭xxxxxxxx",
+    "en": ""
+  },
+  "modal.subscribe.intro": {
+    "bn": "পর্যটক সাময়িকী নিয়মিত ডাকযোগে পেতে সদস্যপদ গ্রহণ করুন।",
+    "en": ""
+  },
+  "modal.subscribe.payment.bkash": {
+    "bn": "বিকাশ",
+    "en": ""
+  },
+  "modal.subscribe.payment.cod": {
+    "bn": "ক্যাশ অন ডেলিভারি",
+    "en": ""
+  },
+  "modal.subscribe.payment.label": {
+    "bn": "মূল্য পরিশোধের পদ্ধতি",
+    "en": ""
+  },
+  "modal.subscribe.payment.nagad": {
+    "bn": "নগদ",
+    "en": ""
+  },
+  "modal.subscribe.plan.annual.desc": {
+    "bn": "৬টি মুদ্রিত সংখ্যা",
+    "en": ""
+  },
+  "modal.subscribe.plan.annual.name": {
+    "bn": "বার্ষিক সদস্যপদ",
+    "en": ""
+  },
+  "modal.subscribe.plan.annual.price": {
+    "bn": "৳ ১২০০",
+    "en": ""
+  },
+  "modal.subscribe.plan.digital.desc": {
+    "bn": "উচ্চমানের পিডিএফ",
+    "en": ""
+  },
+  "modal.subscribe.plan.digital.name": {
+    "bn": "ডিজিটাল ই-বুক",
+    "en": ""
+  },
+  "modal.subscribe.plan.digital.price": {
+    "bn": "৳ ১০০",
+    "en": ""
+  },
+  "modal.subscribe.plan.single.desc": {
+    "bn": "চলতি সংখ্যা ৩৮",
+    "en": ""
+  },
+  "modal.subscribe.plan.single.name": {
+    "bn": "মুদ্রিত একক কপি",
+    "en": ""
+  },
+  "modal.subscribe.plan.single.price": {
+    "bn": "৳ ২২০",
+    "en": ""
+  },
+  "modal.subscribe.submit": {
+    "bn": "অর্ডার নিশ্চিত করুন",
+    "en": ""
+  },
+  "modal.subscribe.submitting": {
+    "bn": "প্রসেসিং হচ্ছে...",
+    "en": ""
+  },
+  "modal.subscribe.title": {
+    "bn": "পর্যটক গ্রাহক সেবা ও অর্ডার",
+    "en": ""
+  },
+  "modal.subscribe.toast.invalid": {
+    "bn": "অনুগ্রহ করে নাম, মোবাইল নম্বর এবং সম্পূর্ণ ঠিকানা প্রদান করুন।",
+    "en": ""
+  },
+  "modal.subscribe.toast.success": {
+    "bn": "ধন্যবাদ {name}! আপনার অর্ডারটি সফলভাবে গৃহীত হয়েছে। শীঘ্রই আমাদের প্রতিনিধি যোগাযোগ করবেন।",
+    "en": ""
+  },
+  "notfound.articles": {
+    "bn": "প্রতিবেদন দেখুন",
+    "en": "",
+    "href": "#/articles"
+  },
+  "notfound.code": {
+    "bn": "৪০৪",
+    "en": ""
+  },
+  "notfound.description": {
+    "bn": "আপনি যে পাতার অনুসন্ধান করছেন তা হয়তো সরানো হয়েছে বা ঠিকানাটি ভুল ছিল।",
+    "en": ""
+  },
+  "notfound.home": {
+    "bn": "মূল পাতায় ফিরুন",
+    "en": "",
+    "href": "#/"
+  },
+  "notfound.title": {
+    "bn": "পাতাটি খুঁজে পাওয়া যায়নি",
+    "en": ""
+  },
+  "publicationDetail.breadcrumb.home": {
+    "bn": "হোম",
+    "en": "",
+    "href": "#/",
+    "newTab": false
+  },
+  "publicationDetail.breadcrumb.publications": {
+    "bn": "সংখ্যা সংগ্রহ",
+    "en": "",
+    "href": "#/publications",
+    "newTab": false
+  },
+  "publicationDetail.hero.orderDigital": {
+    "bn": "ডিজিটাল পিডিএফ (৳ {price})",
+    "en": ""
+  },
+  "publicationDetail.hero.orderPrint": {
+    "bn": "মুদ্রিত কপি অর্ডার করুন (৳ {price})",
+    "en": ""
+  },
+  "publicationDetail.hero.pageCount": {
+    "bn": "{pages} পৃষ্ঠা পূর্ণাঙ্গ সংখ্যা",
+    "en": ""
+  },
+  "publicationDetail.hero.periodIssue": {
+    "bn": "{period} • সংখ্যা {number}",
+    "en": ""
+  },
+  "publicationDetail.highlights.title": {
+    "bn": "সংখ্যার বিশেষ আকর্ষণ",
+    "en": ""
+  },
+  "publicationDetail.promo.button": {
+    "bn": "বার্ষিক গ্রাহক হোন (৳ ১২০০)",
+    "en": ""
+  },
+  "publicationDetail.promo.description": {
+    "bn": "বার্ষিক গ্রাহক হলে পাবেন বিশেষ ছাড় ও বিনামূল্যে প্রতিটি সংখ্যার হোম ডেলিভারি।",
+    "en": ""
+  },
+  "publicationDetail.promo.title": {
+    "bn": "একক সংখ্যা নয়, চান নিয়মিত কপি?",
+    "en": ""
+  },
+  "publicationDetail.related.price": {
+    "bn": "৳ {price}",
+    "en": ""
+  },
+  "publicationDetail.related.title": {
+    "bn": "প্রকাশিত আরও সংখ্যা",
+    "en": ""
+  },
+  "publicationDetail.specs.binding": {
+    "bn": "বাইন্ডিং:",
+    "en": ""
+  },
+  "publicationDetail.specs.cover": {
+    "bn": "কভার:",
+    "en": ""
+  },
+  "publicationDetail.specs.issn": {
+    "bn": "আইএসএসএন:",
+    "en": ""
+  },
+  "publicationDetail.specs.paper": {
+    "bn": "ইনার কাগজ:",
+    "en": ""
+  },
+  "publicationDetail.specs.size": {
+    "bn": "সাইজ:",
+    "en": ""
+  },
+  "publicationDetail.specs.title": {
+    "bn": "বিবরণ",
+    "en": ""
+  },
+  "publicationDetail.toc.author": {
+    "bn": "লেখক/সমীক্ষক: *{author}*",
+    "en": ""
+  },
+  "publicationDetail.toc.eyebrow": {
+    "bn": "সম্পূর্ণ বিষয়বস্তু",
+    "en": ""
+  },
+  "publicationDetail.toc.page": {
+    "bn": "পৃষ্ঠা {page}",
+    "en": ""
+  },
+  "publicationDetail.toc.readableOnline": {
+    "bn": "অনলাইন পাঠযোগ্য",
+    "en": ""
+  },
+  "publicationDetail.toc.title": {
+    "bn": "সূচিপত্র একনজরে",
+    "en": ""
+  },
+  "publicationDetail.toc.total": {
+    "bn": "মোট {count} টি নিবন্ধ ও নথি",
+    "en": ""
+  },
+  "publications.card.buy": {
+    "bn": "কপি কিনুন",
+    "en": ""
+  },
+  "publications.card.issueNumber": {
+    "bn": "সংখ্যা {number}",
+    "en": ""
+  },
+  "publications.card.price": {
+    "bn": "৳ {price}",
+    "en": ""
+  },
+  "publications.card.printInfo": {
+    "bn": "মুদ্রিত সংখ্যা • {pages} পৃষ্ঠা",
+    "en": ""
+  },
+  "publications.card.toc": {
+    "bn": "সূচিপত্র",
+    "en": ""
+  },
+  "publications.filter.all": {
+    "bn": "সব সংখ্যা ({count})",
+    "en": ""
+  },
+  "publications.filter.shippingNote": {
+    "bn": "মুদ্রিত কপি ডাকযোগে সারা দেশে পাঠানো হয়",
+    "en": ""
+  },
+  "publications.filter.special": {
+    "bn": "বিশেষ সংকলন",
+    "en": ""
+  },
+  "publications.filter.year2025": {
+    "bn": "বর্ষ ১১ (২০২৫)",
+    "en": ""
+  },
+  "publications.filter.year2026": {
+    "bn": "বর্ষ ১২ (২০২৬)",
+    "en": ""
+  },
+  "publications.hero.description": {
+    "bn": "পর্যটক পত্রিকার প্রতিটি সংখ্যা মাঠপর্যায়ের প্রামাণ্য অনুসন্ধান, দুর্লভ রঙিন আলোকচিত্র ও বাংলা লোকসংস্কৃতির স্থায়ী দলিল। একক সংখ্যা সংগ্রহ করুন অথবা বার্ষিক গ্রাহক হিসেবে ডাকযোগে নিয়মিত সংগ্রহ পান।",
+    "en": ""
+  },
+  "publications.hero.eyebrow": {
+    "bn": "মুদ্রিত ও ডিজিটাল সংগ্রহশালা",
+    "en": ""
+  },
+  "publications.hero.title": {
+    "bn": "সংখ্যা সংগ্রহ ও প্রকাশনা",
+    "en": ""
+  },
+  "search.empty.message": {
+    "bn": "‘{query}’ দিয়ে কোনো নিবন্ধ বা সংখ্যা খুঁজে পাওয়া যায়নি। বানান পরীক্ষা করে আবার চেষ্টা করুন।",
+    "en": ""
+  },
+  "search.empty.title": {
+    "bn": "কোনো ফলাফল পাওয়া যায়নি",
+    "en": ""
+  },
+  "search.hero.eyebrow": {
+    "bn": "আর্কাইভ ও প্রকাশনা সূচি",
+    "en": ""
+  },
+  "search.hero.headline": {
+    "bn": "অনুসন্ধান",
+    "en": ""
+  },
+  "search.input.clear": {
+    "bn": "মুছে ফেলুন",
+    "en": ""
+  },
+  "search.input.placeholder": {
+    "bn": "স্থান, নিবন্ধ, লেখক বা সংখ্যার নাম লিখুন...",
+    "en": ""
+  },
+  "search.prompt.message": {
+    "bn": "উপরে সার্চ বক্সে যেকোনো শব্দ লিখে খুঁজুন। পর্যটকের শত শত প্রতিবেদন ও সাময়িকী সংরক্ষিত রয়েছে।",
+    "en": ""
+  },
+  "search.prompt.title": {
+    "bn": "অনুসন্ধান শুরু করতে টাইপ করুন",
+    "en": ""
+  },
+  "search.results.articlesHeading": {
+    "bn": "প্রতিবেদনসমূহ ({count})",
+    "en": ""
+  },
+  "search.results.price": {
+    "bn": "৳ {price}",
+    "en": ""
+  },
+  "search.results.publicationsHeading": {
+    "bn": "সংখ্যা ও প্রকাশনা ({count})",
+    "en": ""
+  },
+  "search.results.viewDetails": {
+    "bn": "বিস্তারিত দেখুন →",
+    "en": ""
+  },
+  "search.stats.suffix": {
+    "bn": "’ এর জন্য {count}টি ফলাফল পাওয়া গেছে",
+    "en": ""
+  },
+  "search.suggestions.barind": {
+    "bn": "বরেন্দ্র",
+    "en": ""
+  },
+  "search.suggestions.haor": {
+    "bn": "হাওর",
+    "en": ""
+  },
+  "search.suggestions.kantajiu": {
+    "bn": "কান্তজিউ",
+    "en": ""
+  },
+  "search.suggestions.label": {
+    "bn": "জনপ্রিয় অনুসন্ধান:",
+    "en": ""
+  },
+  "search.suggestions.river": {
+    "bn": "নদী",
+    "en": ""
+  },
+  "search.suggestions.sundarbans": {
+    "bn": "সুন্দরবন",
+    "en": ""
+  },
+  "search.tab.all": {
+    "bn": "সব ফলাফল ({count})",
+    "en": ""
+  },
+  "search.tab.articles": {
+    "bn": "প্রতিবেদন ({count})",
+    "en": ""
+  },
+  "search.tab.publications": {
+    "bn": "সংখ্যা ও প্রকাশনা ({count})",
+    "en": ""
+  },
+  "toast.bookmark.added": {
+    "bn": "নিবন্ধটি সফলভাবে সংরক্ষণ করা হয়েছে!",
+    "en": ""
+  },
+  "toast.bookmark.removed": {
+    "bn": "নিবন্ধটি সংরক্ষিত তালিকা থেকে সরানো হয়েছে।",
+    "en": ""
+  },
+  "toast.dismiss": {
+    "bn": "বন্ধ করুন",
     "en": ""
   }
 }

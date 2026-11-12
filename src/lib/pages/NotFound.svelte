@@ -1,27 +1,47 @@
 <script>
-  import { navigate } from '../stores/router.svelte.js';
+  import { navigate } from "../stores/router.svelte.js";
+  import { t, hrefOf } from "../stores/content.svelte.js";
 </script>
 
-<div class="w-full bg-[#F4F1EA] min-h-[70vh] flex items-center justify-center py-20 px-4">
-  <div class="max-w-md w-full bg-white border-2 border-[#0F2B34] p-8 text-center space-y-4 shadow-xl">
-    <div class="text-4xl text-[#A31D1D] font-serif font-bold">৪০৪</div>
-    <div class="h-1 w-12 bg-[#FDD835] mx-auto"></div>
-    <h1 class="font-serif text-2xl font-bold text-[#0F2B34]">পাতাটি খুঁজে পাওয়া যায়নি</h1>
-    <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
-      আপনি যে পাতার অনুসন্ধান করছেন তা হয়তো সরানো হয়েছে বা ঠিকানাটি ভুল ছিল।
+<div
+  class="flex min-h-[70vh] w-full items-center justify-center bg-[#F4F1EA] px-4 py-20"
+>
+  <div
+    class="w-full max-w-md space-y-4 border-2 border-[#0F2B34] bg-white p-8 text-center shadow-xl"
+  >
+    <div
+      data-content-key="notfound.code"
+      class="font-serif text-4xl font-bold text-[#A31D1D]"
+    >
+      {t("notfound.code")}
+    </div>
+    <div class="mx-auto h-1 w-12 bg-[#FDD835]"></div>
+    <h1
+      data-content-key="notfound.title"
+      class="font-serif text-2xl font-bold text-[#0F2B34]"
+    >
+      {t("notfound.title")}
+    </h1>
+    <p
+      data-content-key="notfound.description"
+      class="text-xs leading-relaxed text-gray-600 sm:text-sm"
+    >
+      {t("notfound.description")}
     </p>
-    <div class="pt-4 flex justify-center space-x-3">
+    <div class="flex justify-center space-x-3 pt-4">
       <button
-        onclick={() => navigate('/')}
-        class="px-5 py-2.5 bg-[#0F2B34] text-white text-xs font-semibold hover:bg-[#1A4553] transition-colors"
+        onclick={() => navigate(hrefOf("notfound.home"))}
+        data-content-key="notfound.home"
+        class="bg-[#0F2B34] px-5 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-[#1A4553]"
       >
-        মূল পাতায় ফিরুন
+        {t("notfound.home")}
       </button>
       <button
-        onclick={() => navigate('/articles')}
-        class="px-5 py-2.5 border border-[#0F2B34] text-[#0F2B34] text-xs font-semibold hover:bg-gray-50 transition-colors"
+        onclick={() => navigate(hrefOf("notfound.articles"))}
+        data-content-key="notfound.articles"
+        class="border border-[#0F2B34] px-5 py-2.5 text-xs font-semibold text-[#0F2B34] transition-colors hover:bg-gray-50"
       >
-        প্রতিবেদন দেখুন
+        {t("notfound.articles")}
       </button>
     </div>
   </div>

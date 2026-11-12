@@ -1,5 +1,6 @@
 <script>
   import { toast } from "../stores/ui.svelte.js";
+  import { t } from "../stores/content.svelte.js";
 
   let fullName = $state("");
   let email = $state("");
@@ -13,13 +14,13 @@
 
   function validate() {
     errors = {};
-    if (!fullName.trim()) errors.fullName = "আপনার পূর্ণ নাম লিখুন";
+    if (!fullName.trim()) errors.fullName = t("contact.error.fullName");
     if (!email.trim() || !email.includes("@") || !email.includes(".")) {
-      errors.email = "সঠিক ইমেইল ঠিকানা প্রদান করুন";
+      errors.email = t("contact.error.email");
     }
-    if (!subject.trim()) errors.subject = "বিষয় উল্লেখ করুন";
+    if (!subject.trim()) errors.subject = t("contact.error.subject");
     if (!message.trim() || message.trim().length < 10) {
-      errors.message = "বার্তাটি কমপক্ষে ১০ অক্ষরের হতে হবে";
+      errors.message = t("contact.error.message");
     }
     return Object.keys(errors).length === 0;
   }
@@ -27,7 +28,7 @@
   function handleSubmit(e) {
     e.preventDefault();
     if (!validate()) {
-      toast.show("অনুগ্রহ করে ফরমের ভুলগুলো সংশোধন করুন।", "error");
+      toast.show(t("contact.toast.invalid"), "error");
       return;
     }
 
@@ -35,10 +36,7 @@
     setTimeout(() => {
       isSubmitting = false;
       submittedSuccess = true;
-      toast.show(
-        "ধন্যবাদ! আপনার বার্তাটি সম্পাদকীয় দপ্তরে পৌঁছেছে।",
-        "success",
-      );
+      toast.show(t("contact.toast.success"), "success");
     }, 700);
   }
 
@@ -64,19 +62,22 @@
           class="inline-flex items-center space-x-2 text-xs font-semibold text-[#FDD835]"
         >
           <span>■</span>
-          <span>সম্পাদকীয় কার্যালয় ও চিঠিপত্র</span>
+          <span data-content-key="contact.hero.eyebrow"
+            >{t("contact.hero.eyebrow")}</span
+          >
         </div>
         <h1
+          data-content-key="contact.hero.title"
           class="font-serif text-3xl font-bold tracking-tight text-white sm:text-5xl"
         >
-          যোগাযোগ ও বার্তা পাঠান
+          {t("contact.hero.title")}
         </h1>
         <div class="my-3 h-1 w-20 bg-[#FDD835]"></div>
         <p
+          data-content-key="contact.hero.lead"
           class="text-sm font-light leading-relaxed text-[#8BA3AC] sm:text-base"
         >
-          আপনার কোনো ক্ষেত্রসমীক্ষার প্রস্তাবনা, আলোকচিত্র সিরিজ, গ্রাহকসেবা
-          প্রশ্ন বা প্রতিক্রিয়া থাকলে আমাদের সম্পাদকীয় দপ্তরে সরাসরি লিখুন।
+          {t("contact.hero.lead")}
         </p>
       </div>
     </div>
@@ -97,30 +98,44 @@
             >
               ✓
             </div>
-            <h2 class="font-serif text-2xl font-bold text-[#0F2B34]">
-              বার্তাটি সফলভাবে পাঠানো হয়েছে!
+            <h2
+              data-content-key="contact.success.title"
+              class="font-serif text-2xl font-bold text-[#0F2B34]"
+            >
+              {t("contact.success.title")}
             </h2>
-            <p class="mx-auto max-w-md text-sm leading-relaxed text-[#4B5563]">
-              ধন্যবাদ <strong>{fullName}</strong>। পর্যটক পত্রিকার সম্পাদকীয়
-              বোর্ড আপনার বার্তাটি খতিয়ে দেখবে এবং প্রয়োজনীয় ক্ষেত্রে আগামী ৩
-              কার্যদিবসের মধ্যে যোগাযোগ করবে।
+            <p
+              data-content-key="contact.success.thanks"
+              class="mx-auto max-w-md text-sm leading-relaxed text-[#4B5563]"
+            >
+              {t("contact.success.thanks")} <strong>{fullName}</strong><span
+                data-content-key="contact.success.body"
+                >{t("contact.success.body")}</span
+              >
             </p>
             <div class="pt-4">
               <button
                 onclick={resetForm}
+                data-content-key="contact.success.again"
                 class="bg-[#0F2B34] px-6 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-[#1A4553]"
               >
-                আরেকটি বার্তা লিখুন
+                {t("contact.success.again")}
               </button>
             </div>
           </div>
         {:else}
           <div class="mb-6 border-b border-[#E6E1D5] pb-4">
-            <h2 class="font-serif text-2xl font-bold text-[#0F2B34]">
-              সরাসরি বার্তা পাঠান
+            <h2
+              data-content-key="contact.form.title"
+              class="font-serif text-2xl font-bold text-[#0F2B34]"
+            >
+              {t("contact.form.title")}
             </h2>
-            <p class="mt-1 text-xs text-gray-500">
-              সবগুলো তথ্য নির্ভুলভাবে পূরণ করুন।
+            <p
+              data-content-key="contact.form.hint"
+              class="mt-1 text-xs text-gray-500"
+            >
+              {t("contact.form.hint")}
             </p>
           </div>
 
@@ -130,21 +145,26 @@
               <div>
                 <label
                   for="contact-fullname"
+                  data-content-key="contact.form.fullName.label"
                   class="mb-1 block text-xs font-semibold text-[#1E2328]"
                 >
-                  আপনার নাম <span class="text-[#A31D1D]">*</span>
+                  {t("contact.form.fullName.label")}
+                  <span class="text-[#A31D1D]">*</span>
                 </label>
                 <input
                   id="contact-fullname"
                   type="text"
                   bind:value={fullName}
-                  placeholder="যেমন: তানভীর আহমেদ"
+                  placeholder={t("contact.form.fullName.placeholder")}
+                  data-content-key-placeholder="contact.form.fullName.placeholder"
                   class="w-full border bg-[#FAF8F5] {errors.fullName
                     ? 'border-red-500'
                     : 'border-gray-300'} px-3 py-2 text-sm focus:border-[#0F2B34] focus:outline-none"
                 />
                 {#if errors.fullName}
-                  <span class="mt-1 block text-[11px] text-red-600"
+                  <span
+                    data-content-key="contact.error.fullName"
+                    class="mt-1 block text-[11px] text-red-600"
                     >{errors.fullName}</span
                   >
                 {/if}
@@ -154,21 +174,26 @@
               <div>
                 <label
                   for="contact-email"
+                  data-content-key="contact.form.email.label"
                   class="mb-1 block text-xs font-semibold text-[#1E2328]"
                 >
-                  ইমেইল ঠিকানা <span class="text-[#A31D1D]">*</span>
+                  {t("contact.form.email.label")}
+                  <span class="text-[#A31D1D]">*</span>
                 </label>
                 <input
                   id="contact-email"
                   type="email"
                   bind:value={email}
-                  placeholder="name@example.com"
+                  placeholder={t("contact.form.email.placeholder")}
+                  data-content-key-placeholder="contact.form.email.placeholder"
                   class="w-full border bg-[#FAF8F5] {errors.email
                     ? 'border-red-500'
                     : 'border-gray-300'} px-3 py-2 text-sm focus:border-[#0F2B34] focus:outline-none"
                 />
                 {#if errors.email}
-                  <span class="mt-1 block text-[11px] text-red-600"
+                  <span
+                    data-content-key="contact.error.email"
+                    class="mt-1 block text-[11px] text-red-600"
                     >{errors.email}</span
                   >
                 {/if}
@@ -179,29 +204,40 @@
             <div>
               <label
                 for="contact-category"
+                data-content-key="contact.form.category.label"
                 class="mb-1 block text-xs font-semibold text-[#1E2328]"
               >
-                বার্তার ধরন / বিভাগ
+                {t("contact.form.category.label")}
               </label>
               <select
                 id="contact-category"
                 bind:value={category}
                 class="w-full border border-gray-300 bg-[#FAF8F5] px-3 py-2 text-sm focus:border-[#0F2B34] focus:outline-none"
               >
-                <option value="article-pitch"
-                  >নিবন্ধ বা ক্ষেত্রসমীক্ষার প্রস্তাবনা</option
+                <option
+                  value="article-pitch"
+                  data-content-key="contact.form.category.articlePitch"
+                  >{t("contact.form.category.articlePitch")}</option
                 >
-                <option value="photo-submission"
-                  >প্রামাণ্য আলোকচিত্র সিরিজ সাবমিশন</option
+                <option
+                  value="photo-submission"
+                  data-content-key="contact.form.category.photoSubmission"
+                  >{t("contact.form.category.photoSubmission")}</option
                 >
-                <option value="subscription-help"
-                  >বার্ষিক সদস্যপদ বা ডাকযোগে ডেলিভারি সহায়তা</option
+                <option
+                  value="subscription-help"
+                  data-content-key="contact.form.category.subscriptionHelp"
+                  >{t("contact.form.category.subscriptionHelp")}</option
                 >
-                <option value="advertising"
-                  >বিজ্ঞাপন ও প্রাতিষ্ঠানিক অংশীদারিত্ব</option
+                <option
+                  value="advertising"
+                  data-content-key="contact.form.category.advertising"
+                  >{t("contact.form.category.advertising")}</option
                 >
-                <option value="general-feedback"
-                  >সাধারণ মতামত ও প্রতিক্রিয়া</option
+                <option
+                  value="general-feedback"
+                  data-content-key="contact.form.category.generalFeedback"
+                  >{t("contact.form.category.generalFeedback")}</option
                 >
               </select>
             </div>
@@ -210,21 +246,26 @@
             <div>
               <label
                 for="contact-subject"
+                data-content-key="contact.form.subject.label"
                 class="mb-1 block text-xs font-semibold text-[#1E2328]"
               >
-                বিষয় <span class="text-[#A31D1D]">*</span>
+                {t("contact.form.subject.label")}
+                <span class="text-[#A31D1D]">*</span>
               </label>
               <input
                 id="contact-subject"
                 type="text"
                 bind:value={subject}
-                placeholder="বার্তার মূল বিষয় লিখুন"
+                placeholder={t("contact.form.subject.placeholder")}
+                data-content-key-placeholder="contact.form.subject.placeholder"
                 class="w-full border bg-[#FAF8F5] {errors.subject
                   ? 'border-red-500'
                   : 'border-gray-300'} px-3 py-2 text-sm focus:border-[#0F2B34] focus:outline-none"
               />
               {#if errors.subject}
-                <span class="mt-1 block text-[11px] text-red-600"
+                <span
+                  data-content-key="contact.error.subject"
+                  class="mt-1 block text-[11px] text-red-600"
                   >{errors.subject}</span
                 >
               {/if}
@@ -234,21 +275,26 @@
             <div>
               <label
                 for="contact-message"
+                data-content-key="contact.form.message.label"
                 class="mb-1 block text-xs font-semibold text-[#1E2328]"
               >
-                বিস্তারিত বার্তা <span class="text-[#A31D1D]">*</span>
+                {t("contact.form.message.label")}
+                <span class="text-[#A31D1D]">*</span>
               </label>
               <textarea
                 id="contact-message"
                 bind:value={message}
                 rows="5"
-                placeholder="আপনার প্রস্তাবনা, প্রশ্ন বা মতামত এখানে বিস্তারিত লিখুন..."
+                placeholder={t("contact.form.message.placeholder")}
+                data-content-key-placeholder="contact.form.message.placeholder"
                 class="w-full border bg-[#FAF8F5] {errors.message
                   ? 'border-red-500'
                   : 'border-gray-300'} px-3 py-2 text-sm focus:border-[#0F2B34] focus:outline-none"
               ></textarea>
               {#if errors.message}
-                <span class="mt-1 block text-[11px] text-red-600"
+                <span
+                  data-content-key="contact.error.message"
+                  class="mt-1 block text-[11px] text-red-600"
                   >{errors.message}</span
                 >
               {/if}
@@ -262,9 +308,12 @@
                 class="flex items-center space-x-2 bg-[#A31D1D] px-8 py-3 text-sm font-semibold tracking-wide text-white shadow-md transition-all hover:bg-[#851414] active:scale-95 disabled:opacity-75"
               >
                 <span
+                  data-content-key={isSubmitting
+                    ? "contact.form.submitting"
+                    : "contact.form.submit"}
                   >{isSubmitting
-                    ? "বার্তা পাঠানো হচ্ছে..."
-                    : "বার্তা জমা দিন"}</span
+                    ? t("contact.form.submitting")
+                    : t("contact.form.submit")}</span
                 >
                 <span>→</span>
               </button>
@@ -288,9 +337,15 @@
 
           <div class="space-y-4 text-xs text-[#374151] sm:text-sm">
             <div>
-              <strong class="block text-[#0F2B34]">পর্যটক কার্যালয়:</strong>
-              <p class="text-gray-600">
-                ১০৬, কনকর্ড এম্পোরিয়াম, কাটাবন,এলিফ্যান্ট রোড, ঢাকা ১২০৫
+              <strong
+                data-content-key="contact.office.name"
+                class="block text-[#0F2B34]">{t("contact.office.name")}</strong
+              >
+              <p
+                data-content-key="contact.office.address"
+                class="text-gray-600"
+              >
+                {t("contact.office.address")}
               </p>
             </div>
 
@@ -305,9 +360,14 @@
 
             <div class="space-y-1 border-t border-[#F0ECE1] pt-2">
               <div>
-                <span class="text-gray-500">সম্পাদকীয় ইমেইল:</span>
-                <span class="ml-1 font-medium text-[#0F2B34]"
-                  >porjotokbdt@gmail.com</span
+                <span
+                  data-content-key="contact.office.emailLabel"
+                  class="text-gray-500">{t("contact.office.emailLabel")}</span
+                >
+                <span
+                  data-content-key="contact.office.email"
+                  class="ml-1 font-medium text-[#0F2B34]"
+                  >{t("contact.office.email")}</span
                 >
               </div>
               <!-- <div>
@@ -317,8 +377,14 @@
                 >
               </div> -->
               <div>
-                <span class="text-gray-500">মুঠোফোন:</span>
-                <span class="ml-1 font-medium text-[#0F2B34]">০১৮০৪-৭৬৮০০৮</span
+                <span
+                  data-content-key="contact.office.phoneLabel"
+                  class="text-gray-500">{t("contact.office.phoneLabel")}</span
+                >
+                <span
+                  data-content-key="contact.office.phone"
+                  class="ml-1 font-medium text-[#0F2B34]"
+                  >{t("contact.office.phone")}</span
                 >
               </div>
             </div>
@@ -328,24 +394,22 @@
         <!-- Submission Guidelines Box -->
         <div class="space-y-3 border border-[#D8D2C4] bg-[#EDE9DE] p-6">
           <h4
+            data-content-key="contact.guidelines.title"
             class="border-b border-[#D8D2C4] pb-2 font-serif text-base font-bold text-[#0F2B34]"
           >
-            লেখা ও ছবি পাঠানোর নিয়মাবলী
+            {t("contact.guidelines.title")}
           </h4>
           <ul
             class="list-disc space-y-2 pl-4 text-xs leading-relaxed text-[#4B5563]"
           >
-            <li>
-              নিবন্ধ অবশ্যই সরেজমিন পরিদর্শনের ওপর ভিত্তি করে লেখা হতে হবে। কোনো
-              অনলাইন অনুকরণ গ্রহণযোগ্য নয়।
+            <li data-content-key="contact.guidelines.fieldwork">
+              {t("contact.guidelines.fieldwork")}
             </li>
-            <li>
-              লেখা ১৫০০ থেকে ৩০০০ শব্দের মধ্যে হতে হবে। ইউনিকোড বাংলা ফন্টে
-              পাঠাতে হবে।
+            <li data-content-key="contact.guidelines.length">
+              {t("contact.guidelines.length")}
             </li>
-            <li>
-              আলোকচিত্র উচ্চ রেজোলিউশনের (কমপক্ষে ৩০০ ডিপিআই) এবং র’ বা
-              আনকমপ্রেসড জেপেগ ফরম্যাটে পাঠাতে হবে।
+            <li data-content-key="contact.guidelines.photos">
+              {t("contact.guidelines.photos")}
             </li>
           </ul>
         </div>

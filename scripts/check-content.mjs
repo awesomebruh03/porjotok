@@ -8,11 +8,11 @@
 //     previous line (use it for dynamic data, never for copy).
 //
 // Unused keys are reported as warnings only.
-import { readFileSync, readdirSync, statSync } from 'node:fs';
-import { join, relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { readFileSync, readdirSync, statSync } from "node:fs";
+import { join, relative } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const root = fileURLToPath(new URL('..', import.meta.url));
+const root = fileURLToPath(new URL("..", import.meta.url));
 const BENGALI = /[\u0980-\u09FF]/;
 
 const errors = [];
@@ -30,36 +30,40 @@ function walk(dir, out = []) {
 // --- 1. site.json -----------------------------------------------------------
 let content = {};
 try {
-  content = JSON.parse(readFileSync(join(root, 'content/site.json'), 'utf8'));
+  content = JSON.parse(readFileSync(join(root, "content/site.json"), "utf8"));
 } catch (error) {
   errors.push(`content/site.json: ${error.message}`);
 }
 
 for (const [key, entry] of Object.entries(content)) {
-  if (!/^[a-z0-9]+(\.[A-Za-z0-9_-]+)+$/.test(key)) {
-    errors.push(`site.json: bad key "${key}" (use dotted ids like header.nav.publications)`);
+  if (!/^[a-z][A-Za-z0-9]*(\.[A-Za-z0-9_-]+)+$/.test(key)) {
+    errors.push(
+      `site.json: bad key "${key}" (use dotted ids like header.nav.publications)`,
+    );
   }
-  if (typeof entry?.bn !== 'string' || entry.bn.trim() === '') {
+  if (typeof entry?.bn !== "string" || entry.bn.trim() === "") {
     errors.push(`site.json: "${key}" has no bn text`);
   }
-  if ('en' in entry && typeof entry.en !== 'string') {
+  if ("en" in entry && typeof entry.en !== "string") {
     errors.push(`site.json: "${key}".en must be a string`);
   }
-  if ('href' in entry && typeof entry.href !== 'string') {
+  if ("href" in entry && typeof entry.href !== "string") {
     errors.push(`site.json: "${key}".href must be a string`);
   }
-  if ('newTab' in entry && typeof entry.newTab !== 'boolean') {
+  if ("newTab" in entry && typeof entry.newTab !== "boolean") {
     errors.push(`site.json: "${key}".newTab must be a boolean`);
   }
 }
 
 // --- 2. key usage -----------------------------------------------------------
-const srcFiles = walk(join(root, 'src')).filter((f) => /\.(svelte|js)$/.test(f));
+const srcFiles = walk(join(root, "src")).filter((f) =>
+  /\.(svelte|js)$/.test(f),
+);
 const used = new Map(); // key -> first "file:line"
 
 function noteUse(key, file, text, index) {
   if (used.has(key)) return;
-  const line = text.slice(0, index).split('\n').length;
+  const line = text.slice(0, index).split("\n").length;
   used.set(key, `${relative(root, file)}:${line}`);
 }
 
@@ -70,37 +74,49 @@ const USE_PATTERNS = [
 ];
 
 for (const file of srcFiles) {
-  if (file.endsWith('content.svelte.js')) continue;
-  const text = readFileSync(file, 'utf8');
+  if (file.endsWith("content.svelte.js")) continue;
+  const text = readFileSync(file, "utf8");
   for (const pattern of USE_PATTERNS) {
-    for (const match of text.matchAll(pattern)) noteUse(match[1], file, text, match.index);
+    for (const match of text.matchAll(pattern))
+      noteUse(match[1], file, text, match.index);
   }
 }
 
 for (const [key, where] of used) {
-  if (!(key in content)) errors.push(`${where}: key "${key}" is not in site.json`);
+  if (!(key in content))
+    errors.push(`${where}: key "${key}" is not in site.json`);
 }
 for (const key of Object.keys(content)) {
-  if (!used.has(key)) warnings.push(`site.json: "${key}" is never used in src/`);
+  if (!used.has(key))
+    warnings.push(`site.json: "${key}" is never used in src/`);
 }
 
 // --- 3. hard-coded Bengali in .svelte files -----------------------------------
 function stripComments(text) {
   // Keep line structure so reported line numbers stay correct.
-  const blank = (m) => m.replace(/[^\n]/g, ' ');
+  const blank = (m) => m.replace(/[^\n]/g, " ");
   return text
     .replace(/<!--[\s\S]*?-->/g, blank)
     .replace(/\/\*[\s\S]*?\*\//g, blank)
-    .replace(/(^|[^:'"`])\/\/[^\n]*/g, (m, p1) => p1 + blank(m.slice(p1.length)));
+    .replace(
+      /(^|[^:'"`])\/\/[^\n]*/g,
+      (m, p1) => p1 + blank(m.slice(p1.length)),
+    );
 }
 
-for (const file of srcFiles.filter((f) => f.endsWith('.svelte'))) {
-  const raw = readFileSync(file, 'utf8').split('\n');
-  const stripped = stripComments(raw.join('\n')).split('\n');
+for (const file of srcFiles.filter((f) => f.endsWith(".svelte"))) {
+  const raw = readFileSync(file, "utf8").split("\n");
+  const stripped = stripComments(raw.join("\n")).split("\n");
   stripped.forEach((line, i) => {
     if (!BENGALI.test(line)) return;
-    if (raw[i].includes('content-ignore') || raw[i - 1]?.includes('content-ignore')) return;
-    errors.push(`${relative(root, file)}:${i + 1}: hard-coded Bengali: ${line.trim().slice(0, 70)}`);
+    if (
+      raw[i].includes("content-ignore") ||
+      raw[i - 1]?.includes("content-ignore")
+    )
+      return;
+    errors.push(
+      `${relative(root, file)}:${i + 1}: hard-coded Bengali: ${line.trim().slice(0, 70)}`,
+    );
   });
 }
 

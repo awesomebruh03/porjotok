@@ -2,6 +2,7 @@
   import { articles } from "../data/articles.js";
   import { router, navigate } from "../stores/router.svelte.js";
   import { bookmarks, toggleBookmark, toast } from "../stores/ui.svelte.js";
+  import { t, link } from "../stores/content.svelte.js";
 
   let { params = {} } = $props();
 
@@ -34,14 +35,14 @@
     if (navigator.share) {
       try {
         await navigator.share(shareData);
-        toast.show("নিবন্ধের লিংক সফলভাবে শেয়ার করা হয়েছে!", "success");
+        toast.show(t("articleDetail.toast.shared"), "success");
       } catch (err) {
         // User cancelled or share failed
       }
     } else {
       // Clipboard fallback
       navigator.clipboard.writeText(window.location.href);
-      toast.show("লিংকটি ক্লিপবোর্ডে কপি করা হয়েছে!", "success");
+      toast.show(t("articleDetail.toast.copied"), "success");
     }
   }
 
@@ -60,9 +61,14 @@
     >
       <!-- Breadcrumb -->
       <div class="flex items-center space-x-2 truncate">
-        <a href="#/" class="hover:text-black">হোম</a>
+        <a {...link("articleDetail.breadcrumb.home")} class="hover:text-black"
+          >{t("articleDetail.breadcrumb.home")}</a
+        >
         <span>/</span>
-        <a href="#/articles" class="hover:text-black">প্রতিবেদন</a>
+        <a
+          {...link("articleDetail.breadcrumb.articles")}
+          class="hover:text-black">{t("articleDetail.breadcrumb.articles")}</a
+        >
         <span>/</span>
         <span
           class="max-w-[200px] truncate font-medium text-[#A31D1D] sm:max-w-none"
@@ -81,9 +87,11 @@
             class="px-1 text-[11px] font-bold {fontSize === 'small'
               ? 'text-[#A31D1D]'
               : 'text-gray-500'}"
-            title="ছোট হরফ"
+            title={t("articleDetail.fontSize.smallTitle")}
+            data-content-key-title="articleDetail.fontSize.smallTitle"
+            data-content-key="articleDetail.fontSize.small"
           >
-            অ-
+            {t("articleDetail.fontSize.small")}
           </button>
           <span class="text-gray-300">|</span>
           <button
@@ -91,9 +99,11 @@
             class="px-1 text-xs font-bold {fontSize === 'medium'
               ? 'text-[#A31D1D]'
               : 'text-gray-500'}"
-            title="স্বাভাবিক হরফ"
+            title={t("articleDetail.fontSize.mediumTitle")}
+            data-content-key-title="articleDetail.fontSize.mediumTitle"
+            data-content-key="articleDetail.fontSize.medium"
           >
-            অ
+            {t("articleDetail.fontSize.medium")}
           </button>
           <span class="text-gray-300">|</span>
           <button
@@ -101,9 +111,11 @@
             class="px-1 text-sm font-bold {fontSize === 'large'
               ? 'text-[#A31D1D]'
               : 'text-gray-500'}"
-            title="বড় হরফ"
+            title={t("articleDetail.fontSize.largeTitle")}
+            data-content-key-title="articleDetail.fontSize.largeTitle"
+            data-content-key="articleDetail.fontSize.large"
           >
-            অ+
+            {t("articleDetail.fontSize.large")}
           </button>
         </div>
 
@@ -112,14 +124,23 @@
           onclick={() => toggleBookmark(article.id)}
           class="flex items-center space-x-1 border border-gray-300 bg-white px-2.5 py-1 text-xs transition-colors hover:border-[#0F2B34]"
           title={isBookmarked
-            ? "সংরক্ষণ তালিকা থেকে সরান"
-            : "পরে পড়ার জন্য সংরক্ষণ করুন"}
+            ? t("articleDetail.bookmark.removeTitle")
+            : t("articleDetail.bookmark.saveTitle")}
+          data-content-key-title={isBookmarked
+            ? "articleDetail.bookmark.removeTitle"
+            : "articleDetail.bookmark.saveTitle"}
         >
           <span class={isBookmarked ? "text-[#A31D1D]" : "text-gray-400"}
             >★</span
           >
-          <span class="hidden sm:inline"
-            >{isBookmarked ? "সংরক্ষিত" : "সংরক্ষণ"}</span
+          <span
+            class="hidden sm:inline"
+            data-content-key={isBookmarked
+              ? "articleDetail.bookmark.saved"
+              : "articleDetail.bookmark.save"}
+            >{isBookmarked
+              ? t("articleDetail.bookmark.saved")
+              : t("articleDetail.bookmark.save")}</span
           >
         </button>
 
@@ -127,10 +148,13 @@
         <button
           onclick={handleShare}
           class="flex items-center space-x-1 bg-[#0F2B34] px-2.5 py-1 text-xs text-white transition-colors hover:bg-[#1A4553]"
-          title="শেয়ার করুন"
+          title={t("articleDetail.share.title")}
+          data-content-key-title="articleDetail.share.title"
         >
           <span>↗</span>
-          <span>শেয়ার</span>
+          <span data-content-key="articleDetail.share.label"
+            >{t("articleDetail.share.label")}</span
+          >
         </button>
       </div>
     </div>
@@ -145,8 +169,11 @@
       <div class="flex items-center space-x-3">
         <span
           class="bg-[#A31D1D] px-2.5 py-0.5 text-[11px] font-semibold text-white"
+          data-content-key={article.categoryBadge
+            ? undefined
+            : "articleDetail.meta.defaultBadge"}
         >
-          {article.categoryBadge || "মাঠপর্যায়ের সমীক্ষা"}
+          {article.categoryBadge || t("articleDetail.meta.defaultBadge")}
         </span>
         <!-- {#if article.docNumber}
           <span class="font-mono text-[#4B5563]">নথি: {article.docNumber}</span>
@@ -186,18 +213,30 @@
         class="flex flex-wrap items-center gap-6 border-t border-[#E6E1D5] pt-4 text-xs text-[#4B5563] sm:text-sm"
       >
         <div>
-          <span class="text-gray-500">প্রতিবেদন ও গবেষণা:</span>
+          <span
+            class="text-gray-500"
+            data-content-key="articleDetail.byline.author"
+            >{t("articleDetail.byline.author")}</span
+          >
           <span class="ml-1 font-bold text-[#0F2B34]">{article.author}</span>
         </div>
         <div>
-          <span class="text-gray-500">আলোকচিত্র:</span>
+          <span
+            class="text-gray-500"
+            data-content-key="articleDetail.byline.photographer"
+            >{t("articleDetail.byline.photographer")}</span
+          >
           <span class="ml-1 font-bold text-[#0F2B34]"
             >{article.photographer}</span
           >
         </div>
         {#if article.location}
           <div>
-            <span class="text-gray-500">সমীক্ষা অঞ্চল:</span>
+            <span
+              class="text-gray-500"
+              data-content-key="articleDetail.byline.location"
+              >{t("articleDetail.byline.location")}</span
+            >
             <span class="ml-1 font-medium text-[#1E2328]"
               >{article.location}</span
             >
@@ -225,8 +264,14 @@
         </div>
       </div>
       <!-- Caption -->
-      <div class="mt-3 text-center text-xs italic text-[#5A636D]">
-        আলোকচিত্র: {article.photographer} | স্থান: {article.location} | পর্যটক সংগ্রহশালা
+      <div
+        class="mt-3 text-center text-xs italic text-[#5A636D]"
+        data-content-key="articleDetail.caption"
+      >
+        {t("articleDetail.caption", {
+          photographer: article.photographer ?? "",
+          location: article.location ?? "",
+        })}
       </div>
     </div>
 
@@ -297,21 +342,29 @@
             class="flex items-center space-x-1.5 bg-[#0F2B34] px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-[#1A4553]"
           >
             <span>↗</span>
-            <span>সামাজিক মাধ্যমে শেয়ার</span>
+            <span data-content-key="articleDetail.actions.share"
+              >{t("articleDetail.actions.share")}</span
+            >
           </button>
           <button
             onclick={() => toggleBookmark(article.id)}
             class="border border-[#0F2B34] px-4 py-2 text-xs font-medium text-[#0F2B34] transition-colors hover:bg-[#0F2B34] hover:text-white"
+            data-content-key={isBookmarked
+              ? "articleDetail.actions.saved"
+              : "articleDetail.actions.readLater"}
           >
-            {isBookmarked ? "★ সংরক্ষিত তালিকায় রয়েছে" : "☆ পরে পড়ুন"}
+            {isBookmarked
+              ? t("articleDetail.actions.saved")
+              : t("articleDetail.actions.readLater")}
           </button>
         </div>
 
         <button
           onclick={printArticle}
           class="hidden text-xs text-[#5A636D] hover:text-black sm:inline-block"
+          data-content-key="articleDetail.actions.print"
         >
-          🖨️ প্রিন্ট করুন
+          {t("articleDetail.actions.print")}
         </button>
       </div>
     </div>
@@ -322,11 +375,17 @@
     class="mx-auto max-w-[1380px] border-t border-[#D8D2C4] px-4 py-16 sm:px-6 lg:px-8"
   >
     <div class="mb-8">
-      <div class="mb-1 text-xs font-bold uppercase text-[#A31D1D]">
-        আরও পড়ুন
+      <div
+        class="mb-1 text-xs font-bold uppercase text-[#A31D1D]"
+        data-content-key="articleDetail.related.eyebrow"
+      >
+        {t("articleDetail.related.eyebrow")}
       </div>
-      <h3 class="font-serif text-2xl font-bold text-[#0F2B34]">
-        সম্পর্কিত অন্যান্য প্রতিবেদন
+      <h3
+        class="font-serif text-2xl font-bold text-[#0F2B34]"
+        data-content-key="articleDetail.related.heading"
+      >
+        {t("articleDetail.related.heading")}
       </h3>
     </div>
 
